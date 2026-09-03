@@ -19,5 +19,33 @@
     "pilier": "KIT",
     "description": "Présentation du mécanisme de donation avec réserve d'usufruit et du Kit Sérénité & Transmission. CTA : DM \"KIT\".",
     "duration": "0:52"
+  },
+  {
+    "file": "video-4-protection-incapacite.mp4",
+    "title": "Pilier PROTECTION — Incapacité de travail",
+    "pilier": "PROTECTION",
+    "description": "Ce que touche vraiment un indépendant en incapacité de travail, et l'angle mort des charges fixes. CTA : DM \"BILAN\".",
+    "duration": "0:39"
+  },
+  {
+    "file": "video-5-kit-deces-transmission.mp4",
+    "title": "Pilier KIT — Décès et transmission",
+    "pilier": "KIT",
+    "description": "Ce que touche la famille au décès d'un indépendant, et pourquoi un plan de transmission change tout. CTA : DM \"KIT\".",
+    "duration": "0:42"
+  },
+  {
+    "file": "video-6-protection-maladie.mp4",
+    "title": "Pilier PROTECTION — Maladie",
+    "pilier": "PROTECTION",
+    "description": "Pourquoi les indépendants s'arrêtent trop tard quand ils sont malades, et le vrai coût de ça. CTA : DM \"BILAN\".",
+    "duration": "0:39"
+  },
+  {
+    "file": "video-7-comparatif-salarie-independant.mp4",
+    "title": "Comparatif — Salarié vs Indépendant",
+    "pilier": "COMPARATIF",
+    "description": "Le vrai écart de protection sociale entre un salarié et un indépendant, sur maladie, pension et décès. CTA : DM \"BILAN\".",
+    "duration": "0:43"
   }
 ]

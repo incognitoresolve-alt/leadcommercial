@@ -11,8 +11,8 @@ const insertLead = db.prepare(`
 router.post('/', (req, res) => {
   const body = req.body || {};
   const pilier = String(body.pilier || '').toUpperCase();
-  if (!['ECART', 'KIT'].includes(pilier)) {
-    return res.status(400).json({ error: "pilier doit etre 'ECART' ou 'KIT'" });
+  if (!['ECART', 'KIT', 'BILAN'].includes(pilier)) {
+    return res.status(400).json({ error: "pilier doit etre 'ECART', 'KIT' ou 'BILAN'" });
   }
   if (!body.email && !body.telephone) {
     return res.status(400).json({ error: 'email ou telephone requis pour recontacter le lead' });

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilan protection gratuit — Indépendants</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Mon Écart Pension</div>
+  <nav>
+    <a href="/">Simulateur</a>
+    <a href="/kit.html">Kit Transmission</a>
+    <a href="/bilan.html">Bilan gratuit</a>
+    <a href="/videos.html">Vidéos</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="pill">PILIER PROTECTION</div>
+  <h1>Bilan protection gratuit</h1>
+  <p>Incapacité de travail, maladie, décès : 20 minutes pour voir précisément ce que tu touches aujourd'hui et où sont les trous à combler.</p>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Ce qu'on regarde ensemble</h2>
+    <ul>
+      <li>Ce que tu touches réellement en cas d'incapacité de travail ou de maladie longue durée</li>
+      <li>Ce que couvrent (ou pas) tes charges fixes professionnelles pendant un arrêt</li>
+      <li>Ce que toucherait ta famille en cas de décès, et pendant combien de temps</li>
+      <li>La comparaison avec la protection d'un salarié, pour situer précisément tes trous</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Réserver mon bilan gratuit</h2>
+    <form id="bilan-form">
+      <div class="grid-2">
+        <div>
+          <label for="nom">Prénom / Nom</label>
+          <input type="text" id="nom" name="nom" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div>
+          <label for="telephone">Téléphone (optionnel)</label>
+          <input type="tel" id="telephone" name="telephone">
+        </div>
+        <div>
+          <label for="sujet">Ce qui t'amène</label>
+          <select id="sujet" name="sujet">
+            <option value="incapacite">Incapacité de travail</option>
+            <option value="maladie">Maladie</option>
+            <option value="deces">Décès / transmission</option>
+            <option value="comparatif">Comparatif salarié vs indépendant</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn gold">DM "BILAN" — Réserver mon créneau</button>
+      <div class="status-msg" id="bilan-status"></div>
+    </form>
+  </div>
+
+</div>
+
+<footer>Mon Écart Pension — bilan protection sociale indépendant</footer>
+
+<script src="/js/bilan.js"></script>
+</body>
+</html>

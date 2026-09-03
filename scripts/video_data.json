@@ -43,5 +43,65 @@
       { "voix_off": "C'est exactement ce genre de mécanisme que j'explique, étape par étape, dans mon Kit Sérénité et Transmission. 58 pages, gratuit.", "texte_ecran": "Kit Sérénité & Transmission · 58 pages", "duree_cible": 12 },
       { "voix_off": "DM-moi KIT et je te l'envoie directement.", "texte_ecran": "DM \"KIT\"", "duree_cible": 8 }
     ]
+  },
+  {
+    "id": "video-4-protection-incapacite",
+    "file": "video-4-protection-incapacite.mp4",
+    "title": "Pilier PROTECTION — Incapacité de travail",
+    "pilier": "PROTECTION",
+    "accent": "#e0574c",
+    "description": "Ce que touche vraiment un indépendant en incapacité de travail, et l'angle mort des charges fixes. CTA : DM \"BILAN\".",
+    "rows": [
+      { "voix_off": "Un accident, une opération, six mois d'arrêt. T'as déjà calculé ce que ça te coûte ?", "texte_ecran": "SIX MOIS D'ARRÊT. T'AS CALCULÉ LE COÛT ?", "duree_cible": 3 },
+      { "voix_off": "En tant qu'indépendant, la mutuelle ne te paie pas un pourcentage de ton revenu. Elle te paie un forfait, le même pour tout le monde dans ta situation familiale.", "texte_ecran": "Un FORFAIT, pas un % de ton revenu", "duree_cible": 8 },
+      { "voix_off": "Résultat : la plupart de mes clients indépendants perdent soixante à quatre-vingts pour cent de leurs revenus du jour au lendemain.", "texte_ecran": "-60% à -80% DE REVENUS", "duree_cible": 10, "highlight": true },
+      { "voix_off": "Et pendant ce temps-là, ton loyer, ton leasing, le salaire de ton employé, eux, ils ne s'arrêtent pas.", "texte_ecran": "TES CHARGES FIXES, ELLES, CONTINUENT", "duree_cible": 9 },
+      { "voix_off": "Je fais un bilan gratuit de ta protection en cas d'incapacité. DM-moi BILAN.", "texte_ecran": "DM \"BILAN\"", "duree_cible": 7 }
+    ]
+  },
+  {
+    "id": "video-5-kit-deces-transmission",
+    "file": "video-5-kit-deces-transmission.mp4",
+    "title": "Pilier KIT — Décès et transmission",
+    "pilier": "KIT",
+    "accent": "#d4a94c",
+    "description": "Ce que touche la famille au décès d'un indépendant, et pourquoi un plan de transmission change tout. CTA : DM \"KIT\".",
+    "rows": [
+      { "voix_off": "Si tu meurs demain, ta famille touche quoi exactement ? La plupart des indépendants n'en ont aucune idée.", "texte_ecran": "SI TU MEURS DEMAIN, TA FAMILLE TOUCHE QUOI ?", "duree_cible": 3 },
+      { "voix_off": "Il existe une allocation de transition. Mais elle est temporaire, elle s'arrête après un temps limité, ce n'est pas une pension à vie.", "texte_ecran": "ALLOCATION DE TRANSITION = TEMPORAIRE", "duree_cible": 9 },
+      { "voix_off": "Pendant ce temps, tes dettes professionnelles continuent : le crédit du local, le leasing, un emprunt. Ta famille en hérite aussi.", "texte_ecran": "TES DETTES NE DISPARAISSENT PAS", "duree_cible": 10 },
+      { "voix_off": "Et sans plan de transmission, ils peuvent devoir vendre dans l'urgence juste pour payer les droits de succession.", "texte_ecran": "VENDRE EN URGENCE POUR PAYER LES DROITS ?", "duree_cible": 10, "highlight": true },
+      { "voix_off": "C'est exactement ce que j'explique dans le Kit Sérénité et Transmission, gratuit, 58 pages. DM-moi KIT.", "texte_ecran": "DM \"KIT\"", "duree_cible": 8 }
+    ]
+  },
+  {
+    "id": "video-6-protection-maladie",
+    "file": "video-6-protection-maladie.mp4",
+    "title": "Pilier PROTECTION — Maladie",
+    "pilier": "PROTECTION",
+    "accent": "#e0574c",
+    "description": "Pourquoi les indépendants s'arrêtent trop tard quand ils sont malades, et le vrai coût de ça. CTA : DM \"BILAN\".",
+    "rows": [
+      { "voix_off": "Tu tousses depuis trois semaines, mais t'as encore bossé chaque jour. Je sais pourquoi.", "texte_ecran": "TU TRAVAILLES MALADE DEPUIS DES SEMAINES ?", "duree_cible": 3 },
+      { "voix_off": "En Belgique, un indépendant est couvert par la mutuelle dès le premier jour d'incapacité reconnue. Mais avec un revenu qui chute immédiatement.", "texte_ecran": "COUVERT DÈS LE JOUR 1… MAIS À QUEL PRIX ?", "duree_cible": 9 },
+      { "voix_off": "Alors la plupart des indépendants s'arrêtent trop tard. Et une maladie mal soignée devient souvent une incapacité longue durée.", "texte_ecran": "S'ARRÊTER TROP TARD = ARRÊT PLUS LONG", "duree_cible": 9 },
+      { "voix_off": "La vraie protection, c'est de pouvoir t'arrêter à temps, sans couler ton activité.", "texte_ecran": "S'ARRÊTER À TEMPS, SANS COULER TON ACTIVITÉ", "duree_cible": 9, "highlight": true },
+      { "voix_off": "Je t'aide à mettre ça en place. DM-moi BILAN, c'est gratuit.", "texte_ecran": "DM \"BILAN\"", "duree_cible": 7 }
+    ]
+  },
+  {
+    "id": "video-7-comparatif-salarie-independant",
+    "file": "video-7-comparatif-salarie-independant.mp4",
+    "title": "Comparatif — Salarié vs Indépendant",
+    "pilier": "COMPARATIF",
+    "accent": "#2fb8a6",
+    "description": "Le vrai écart de protection sociale entre un salarié et un indépendant, sur maladie, pension et décès. CTA : DM \"BILAN\".",
+    "rows": [
+      { "voix_off": "Ton pote salarié touche ça gratuitement. Toi, en tant qu'indépendant, tu touches ça.", "texte_ecran": "SALARIÉ vs INDÉPENDANT : LE VRAI ÉCART", "duree_cible": 3 },
+      { "voix_off": "Lui, s'il tombe malade, il touche son salaire à cent pour cent pendant un mois, payé par son employeur. Toi, c'est un forfait dès le premier jour.", "texte_ecran": "MALADIE : 100% du salaire (1 mois) vs FORFAIT dès J1", "duree_cible": 10 },
+      { "voix_off": "Lui, sa boîte lui paie souvent une assurance groupe qui construit sa pension. Toi, si tu ne la mets pas en place toi-même, elle n'existe pas.", "texte_ecran": "PENSION : assurance groupe automatique vs RIEN par défaut", "duree_cible": 10 },
+      { "voix_off": "Lui, s'il meurt, sa famille touche souvent un capital d'assurance groupe en plus. Toi, sans contrat, ta famille n'a que l'allocation de transition.", "texte_ecran": "DÉCÈS : capital automatique vs RIEN par défaut", "duree_cible": 10, "highlight": true },
+      { "voix_off": "La liberté, tu l'as. La protection, il faut la construire toi-même. Je t'aide à faire ça. DM-moi BILAN.", "texte_ecran": "DM \"BILAN\"", "duree_cible": 8 }
+    ]
   }
 ]

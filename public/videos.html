@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vidéos prêtes à publier</title>
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .video-item video { width: 100%; max-width: 260px; border-radius: 10px; display: block; margin-bottom: 12px; background: #000; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Mon Écart Pension</div>
+  <nav>
+    <a href="/">Simulateur</a>
+    <a href="/kit.html">Kit Transmission</a>
+    <a href="/videos.html">Vidéos</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="pill">FORMAT SANS VISAGE</div>
+  <h1>Vidéos prêtes à publier</h1>
+  <p>3 vidéos verticales générées à partir des scripts (voix off + texte à l'écran synchronisé), prêtes à télécharger et publier sur TikTok / Reels.</p>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="video-list" id="video-list">Chargement…</div>
+  </div>
+</div>
+
+<footer>Mon Écart Pension — vidéos générées automatiquement à partir des scripts</footer>
+
+<script>
+fetch('/downloads/videos-manifest.json')
+  .then((r) => r.json())
+  .then((videos) => {
+    const list = document.getElementById('video-list');
+    list.innerHTML = '';
+    videos.forEach((v) => {
+      const el = document.createElement('div');
+      el.className = 'video-item';
+      el.innerHTML = `
+        <video src="/downloads/${v.file}" controls preload="metadata"></video>
+        <h3>${v.title}</h3>
+        <div class="meta">${v.duration} · ${v.pilier}</div>
+        <p>${v.description}</p>
+        <a class="btn" href="/downloads/${v.file}" download>Télécharger le MP4</a>
+      `;
+      list.appendChild(el);
+    });
+  })
+  .catch(() => {
+    document.getElementById('video-list').textContent = "Vidéos pas encore générées.";
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Leads</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Mon Écart Pension — Admin</div>
+  <nav><a href="/">Site</a></nav>
+</div>
+
+<div class="container" style="margin-top: 32px;">
+  <div class="card">
+    <h2>Leads</h2>
+    <div class="grid-2">
+      <div>
+        <label for="token">Token admin</label>
+        <input type="password" id="token" placeholder="ADMIN_TOKEN">
+      </div>
+      <div style="align-self:end;">
+        <button id="load-btn">Charger les leads</button>
+      </div>
+    </div>
+    <a class="btn outline" id="export-link" href="#" target="_blank">Exporter en CSV</a>
+    <div id="table-wrap" style="margin-top:20px; overflow-x:auto;"></div>
+  </div>
+</div>
+
+<script>
+const tokenInput = document.getElementById('token');
+const loadBtn = document.getElementById('load-btn');
+const tableWrap = document.getElementById('table-wrap');
+const exportLink = document.getElementById('export-link');
+
+const saved = localStorage.getItem('adminToken');
+if (saved) tokenInput.value = saved;
+
+loadBtn.addEventListener('click', async () => {
+  const token = tokenInput.value.trim();
+  localStorage.setItem('adminToken', token);
+  exportLink.href = `/api/leads/export.csv?token=${encodeURIComponent(token)}`;
+
+  const res = await fetch(`/api/leads?token=${encodeURIComponent(token)}`);
+  if (!res.ok) {
+    tableWrap.innerHTML = '<p style="color:#c0392b;">Token invalide.</p>';
+    return;
+  }
+  const rows = await res.json();
+  if (!rows.length) {
+    tableWrap.innerHTML = '<p>Aucun lead pour le moment.</p>';
+    return;
+  }
+  const cols = ['id','created_at','pilier','nom','email','telephone','ecart_estime','pension_estimee','source','statut'];
+  let html = '<table><thead><tr>' + cols.map((c) => `<th>${c}</th>`).join('') + '</tr></thead><tbody>';
+  for (const row of rows) {
+    html += '<tr>' + cols.map((c) => `<td>${row[c] ?? ''}</td>`).join('') + '</tr>';
+  }
+  html += '</tbody></table>';
+  tableWrap.innerHTML = html;
+});
+</script>
+
+</body>
+</html>

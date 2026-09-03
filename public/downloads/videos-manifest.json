@@ -1,0 +1,23 @@
+[
+  {
+    "file": "video-1-ecart-independant-35.mp4",
+    "title": "Pilier ÉCART — Indépendant 35 ans",
+    "pilier": "ECART",
+    "description": "Simulateur Mon Écart Pension appliqué à un profil indépendant de 35 ans. CTA : DM \"ÉCART\".",
+    "duration": "0:35"
+  },
+  {
+    "file": "video-2-ecart-sante-45.mp4",
+    "title": "Pilier ÉCART — Profession de santé 45 ans",
+    "pilier": "ECART",
+    "description": "Même simulateur, profil profession de santé indépendante de 45 ans. CTA : DM \"ÉCART\".",
+    "duration": "0:38"
+  },
+  {
+    "file": "video-3-kit-donation-usufruit.mp4",
+    "title": "Pilier KIT — Donation avec usufruit",
+    "pilier": "KIT",
+    "description": "Présentation du mécanisme de donation avec réserve d'usufruit et du Kit Sérénité & Transmission. CTA : DM \"KIT\".",
+    "duration": "0:52"
+  }
+]

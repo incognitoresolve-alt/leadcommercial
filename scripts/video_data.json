@@ -1,0 +1,47 @@
+[
+  {
+    "id": "video-1-ecart-independant-35",
+    "file": "video-1-ecart-independant-35.mp4",
+    "title": "Pilier ÉCART — Indépendant 35 ans",
+    "pilier": "ECART",
+    "accent": "#2e78ff",
+    "description": "Simulateur Mon Écart Pension appliqué à un profil indépendant de 35 ans. CTA : DM \"ÉCART\".",
+    "rows": [
+      { "voix_off": "Si t'as jamais fait ce calcul, regarde bien.", "texte_ecran": "T'AS JAMAIS FAIT CE CALCUL ?", "duree_cible": 3 },
+      { "voix_off": "Je prends un profil simple : indépendant, 35 ans, il gagne bien sa vie aujourd'hui.", "texte_ecran": "Profil : Indépendant · 35 ans", "duree_cible": 5 },
+      { "voix_off": "Je rentre ses chiffres dans mon simulateur.", "texte_ecran": "Âge 35 ans · Revenu 3200€/mois · 10 ans d'activité", "duree_cible": 10 },
+      { "voix_off": "Vous voyez l'écart entre ce qu'il gagne maintenant et ce qu'il va toucher ? C'est ça que personne ne lui a montré.", "texte_ecran": "ÉCART : 1800€/mois", "duree_cible": 10, "highlight": true },
+      { "voix_off": "Si tu veux voir ton propre chiffre, écris-moi ÉCART en DM, je te fais le calcul gratuitement.", "texte_ecran": "DM \"ÉCART\"", "duree_cible": 7 }
+    ]
+  },
+  {
+    "id": "video-2-ecart-sante-45",
+    "file": "video-2-ecart-sante-45.mp4",
+    "title": "Pilier ÉCART — Profession de santé 45 ans",
+    "pilier": "ECART",
+    "accent": "#2e78ff",
+    "description": "Même simulateur, profil profession de santé indépendante de 45 ans. CTA : DM \"ÉCART\".",
+    "rows": [
+      { "voix_off": "Kiné, infirmier, dentiste indépendant. Si t'as 45 ans et pas encore regardé ça, cette vidéo est pour toi.", "texte_ecran": "PROFESSION DE SANTÉ INDÉPENDANT ?", "duree_cible": 3 },
+      { "voix_off": "Prenons un profil : profession de santé, 45 ans, en activité depuis 15 ans.", "texte_ecran": "Profil : Santé · 45 ans", "duree_cible": 5 },
+      { "voix_off": "Je fais tourner le simulateur avec ses vraies données de carrière.", "texte_ecran": "Âge 45 ans · Revenu 4200€/mois · 15 ans d'activité", "duree_cible": 10 },
+      { "voix_off": "Et voilà l'écart entre son revenu actuel et sa future pension. C'est ce chiffre-là qu'il faut anticiper, pas subir.", "texte_ecran": "ÉCART : 2750€/mois", "duree_cible": 10, "highlight": true },
+      { "voix_off": "Toi aussi t'es dans la santé et tu veux ton chiffre ? DM-moi ÉCART.", "texte_ecran": "DM \"ÉCART\"", "duree_cible": 7 }
+    ]
+  },
+  {
+    "id": "video-3-kit-donation-usufruit",
+    "file": "video-3-kit-donation-usufruit.mp4",
+    "title": "Pilier KIT — Donation avec usufruit",
+    "pilier": "KIT",
+    "accent": "#d4a94c",
+    "description": "Présentation du mécanisme de donation avec réserve d'usufruit et du Kit Sérénité & Transmission. CTA : DM \"KIT\".",
+    "rows": [
+      { "voix_off": "Si t'as un bien ou une entreprise et pas de plan de transmission, tes héritiers vont payer le prix.", "texte_ecran": "PAS DE PLAN DE TRANSMISSION ?", "duree_cible": 3 },
+      { "voix_off": "Il existe un mécanisme simple, la donation avec usufruit : tu donnes la propriété du bien à tes enfants, mais tu gardes le droit d'en profiter et d'en toucher les revenus jusqu'à la fin.", "texte_ecran": "Donation avec réserve d'usufruit", "duree_cible": 12 },
+      { "voix_off": "Résultat : tes enfants héritent avec beaucoup moins de droits de succession à payer, et toi tu gardes le contrôle de ton vivant.", "texte_ecran": "MOINS DE DROITS DE SUCCESSION", "duree_cible": 15, "highlight": true },
+      { "voix_off": "C'est exactement ce genre de mécanisme que j'explique, étape par étape, dans mon Kit Sérénité et Transmission. 58 pages, gratuit.", "texte_ecran": "Kit Sérénité & Transmission · 58 pages", "duree_cible": 12 },
+      { "voix_off": "DM-moi KIT et je te l'envoie directement.", "texte_ecran": "DM \"KIT\"", "duree_cible": 8 }
+    ]
+  }
+]

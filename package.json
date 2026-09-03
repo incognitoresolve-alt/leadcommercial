@@ -1,0 +1,14 @@
+{
+  "name": "leadcommercial",
+  "version": "1.0.0",
+  "description": "Outil de generation de leads - simulateur Mon Ecart Pension + capture de leads (ECART / KIT)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.21.0"
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Écart Pension — Simulateur gratuit pour indépendants</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Mon Écart Pension</div>
+  <nav>
+    <a href="/">Simulateur</a>
+    <a href="/kit.html">Kit Transmission</a>
+    <a href="/videos.html">Vidéos</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="pill">PILIER ÉCART</div>
+  <h1>Indépendant ? Découvre l'écart entre ton revenu actuel et ta future pension.</h1>
+  <p>Un calcul gratuit, en 30 secondes, basé sur ton profil réel. C'est le chiffre que personne ne t'a montré.</p>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Simulateur gratuit</h2>
+    <form id="sim-form">
+      <div class="grid-2">
+        <div>
+          <label for="profil">Profil</label>
+          <select id="profil" name="profil">
+            <option value="independant">Indépendant</option>
+            <option value="sante">Profession de santé indépendante</option>
+          </select>
+        </div>
+        <div>
+          <label for="age">Âge actuel</label>
+          <input type="number" id="age" name="age" min="18" max="70" value="35" required>
+        </div>
+        <div>
+          <label for="revenuMensuel">Revenu net mensuel actuel (€)</label>
+          <input type="number" id="revenuMensuel" name="revenuMensuel" min="0" step="50" value="3200" required>
+        </div>
+        <div>
+          <label for="anneesActivite">Années d'activité déjà prestées</label>
+          <input type="number" id="anneesActivite" name="anneesActivite" min="0" max="50" value="10" required>
+        </div>
+      </div>
+      <button type="submit">Calculer mon écart pension</button>
+    </form>
+
+    <div class="result" id="result">
+      <div>Écart estimé entre ton revenu actuel et ta pension future :</div>
+      <div class="ecart" id="ecart-value">—</div>
+      <div class="sub" id="ecart-sub"></div>
+      <p class="disclaimer" id="disclaimer"></p>
+    </div>
+  </div>
+
+  <div class="card" id="lead-card" style="display:none;">
+    <h2>Reçois le détail de ton calcul</h2>
+    <p>Laisse-nous tes coordonnées, on t'envoie le détail complet de ta simulation et les pistes pour réduire cet écart.</p>
+    <form id="lead-form">
+      <div class="grid-2">
+        <div>
+          <label for="nom">Prénom / Nom</label>
+          <input type="text" id="nom" name="nom">
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+        </div>
+      </div>
+      <label for="telephone">Téléphone (optionnel si email renseigné)</label>
+      <input type="tel" id="telephone" name="telephone">
+      <button type="submit" class="btn gold">DM "ÉCART" — Recevoir mon calcul</button>
+      <div class="status-msg" id="lead-status"></div>
+    </form>
+  </div>
+
+</div>
+
+<footer>Mon Écart Pension — simulateur indicatif, ne remplace pas mypension.be</footer>
+
+<script src="/js/simulator.js"></script>
+</body>
+</html>

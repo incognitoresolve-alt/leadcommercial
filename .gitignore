@@ -1,0 +1,7 @@
+node_modules/
+data/
+*.log
+public/downloads/*.mp4
+public/downloads/*.wav
+__pycache__/
+*.pyc

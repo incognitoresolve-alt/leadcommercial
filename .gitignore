@@ -3,5 +3,7 @@ data/
 *.log
 public/downloads/*.mp4
 public/downloads/*.wav
+content/carousels/**/*.png
+content/carousels/*.zip
 __pycache__/
 *.pyc

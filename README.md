@@ -6,6 +6,7 @@ Outil de génération de leads pour un funnel indépendants/professions de sant�
 
 - **Simulateur "Mon Écart Pension"** (`/`) : calcule un écart pension indicatif à partir de l'âge, du revenu net mensuel et des années d'activité déjà prestées, puis capture le lead (DM "ÉCART" équivalent web).
 - **Page Kit Sérénité & Transmission** (`/kit.html`) : capture de lead pour le guide 58 pages (DM "KIT" équivalent web).
+- **Page Bilan gratuit** (`/bilan.html`) : capture de lead pour un bilan protection (incapacité, maladie, décès, comparatif salarié) — DM "BILAN".
 - **Page Vidéos** (`/videos.html`) : les vidéos verticales générées à partir des scripts, prévisualisables et téléchargeables.
 - **Admin leads** (`/admin.html`) : liste des leads capturés (protégée par `ADMIN_TOKEN`) + export CSV.
 
@@ -21,7 +22,7 @@ Le serveur écoute sur `http://localhost:3000`. Les leads sont stockés dans `da
 ## API
 
 - `POST /api/simulate` — `{ age, revenuMensuel, anneesActivite, profil }` → `{ pensionEstimee, ecartEstime, ... }`
-- `POST /api/leads` — `{ pilier: 'ECART'|'KIT', nom, email, telephone, ... }`
+- `POST /api/leads` — `{ pilier: 'ECART'|'KIT'|'BILAN', nom, email, telephone, ... }`
 - `GET /api/leads?token=...` — liste des leads (JSON)
 - `GET /api/leads/export.csv?token=...` — export CSV
 - `PATCH /api/leads/:id?token=...` — mise à jour `statut` / `notes`
@@ -39,6 +40,17 @@ python3 scripts/generate_videos.py
 Pipeline par ligne du script : synthèse vocale FR (espeak-ng + voix mbrola `mb-fr4`), image de fond générée (PIL) avec le texte à l'écran synchronisé, puis assemblage ffmpeg en un MP4 vertical 1080×1920. Les fichiers `.mp4` ne sont pas versionnés (voir `.gitignore`) — relancer le script après clonage, ou récupérer les fichiers livrés séparément.
 
 **Important** : la voix off est générée par synthèse vocale (robotique), pas une voix humaine enregistrée. Pour un rendu plus naturel, remplace la voix off par un enregistrement réel (le texte mot pour mot et le minutage sont dans `scripts/video_data.json`) avant publication, ou utilise ces vidéos telles quelles comme gabarit (visuel + timing + sous-titres) que tu doubles ensuite dans CapCut/InShot.
+
+## Générer les carrousels Instagram / TikTok (salariés)
+
+`content/carousels/<theme>/slide-N.png` (+ un `.zip` par thème) sont générés à partir de `scripts/carousels_data.json` : 6 thématiques ciblant les salariés pour générer du lead sur l'épargne et la protection — épargne pension, épargne à long terme, épargne enfant, couverture santé, couverture obsèques, incapacité de travail (salarié). Chaque thème est un carrousel complet de 7 slides (pas juste une couverture) : accroche, contexte, chiffre-clé, mythe vs réalité, liste, erreur fréquente, puis CTA — pensé pour retenir l'attention jusqu'au bout et convertir en DM.
+
+```bash
+pip install pillow   # ffmpeg non requis ici, seulement Pillow
+python3 scripts/generate_carousels.py
+```
+
+Format 1080×1350 (4:5), compatible carrousel Instagram et post photo TikTok. Design : couverture et CTA en navy dramatique, slides de contenu en ivoire pour la lisibilité, une couleur d'accent par thème, points de progression en bas de chaque slide. Les images et zips ne sont pas versionnés (voir `.gitignore`) — relancer le script après clonage.
 
 ## Hypothèses du simulateur
 

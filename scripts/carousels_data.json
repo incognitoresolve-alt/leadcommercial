@@ -6,13 +6,67 @@
     "dm_keyword": "ÉPARGNE",
     "sources": "SPF Finances — exercice d'imposition 2026 · Wikifin.be",
     "slides": [
-      { "type": "cover", "eyebrow": "GUIDE COMPLET", "headline": "Tu paies trop d'impôts.\nEt si une partie finançait ta retraite ?", "highlight": "ta retraite" },
-      { "type": "fact", "eyebrow": "01 · Le principe", "headline": "Un compte que tu remplis, l'État qui te rembourse", "body": "L'épargne pension, c'est un versement que tu fais chaque année sur un compte dédié — et une partie de ce montant te revient directement sous forme de réduction d'impôt.", "highlight": "réduction d'impôt" },
-      { "type": "stat", "eyebrow": "02 · L'avantage fiscal", "stat_number": "25-30%", "stat_label": "de réduction d'impôt", "body": "Le pourcentage dépend du plafond que tu choisis. Plus le plafond est élevé, plus le taux de réduction baisse — les deux paliers et les montants sont réactualisés chaque année.", "highlight": null },
-      { "type": "myth", "eyebrow": "03 · Mythe vs réalité", "headline": "\"C'est réservé aux indépendants\"", "myth": "Fausse idée reçue", "reality": "L'épargne pension est justement pensée pour compléter la pension légale de tout le monde — salariés compris, et souvent en priorité.", "highlight": null },
-      { "type": "list", "eyebrow": "04 · Comment ça marche", "headline": "Deux formules possibles", "items": ["Fonds d'épargne pension : rendement lié aux marchés", "Assurance épargne pension : capital + taux garanti", "Les deux ouvrent le même avantage fiscal", "Le choix dépend de ton horizon et ta tolérance au risque"], "highlight": null },
-      { "type": "fact", "eyebrow": "05 · L'erreur fréquente", "headline": "Attendre décembre pour verser", "body": "Verser en une fois en fin d'année fait perdre des mois de rendement composé. Étaler les versements sur l'année, dès janvier, change beaucoup sur 20-30 ans.", "highlight": "rendement composé" },
-      { "type": "cta", "headline": "Combien peux-tu économiser cette année ?", "body": "Je calcule ton avantage fiscal exact avec toi, gratuitement.", "keyword_label": "DM \"ÉPARGNE\"" }
+      {
+        "type": "cover",
+        "eyebrow": "GUIDE COMPLET",
+        "headline": "Tu paies trop d'impôts.\nEt si une partie finançait ta retraite ?",
+        "highlight": "ta retraite",
+        "voix_off": "Tu paies trop d'impôts. Et si une partie de cet argent finançait ta retraite ?"
+      },
+      {
+        "type": "fact",
+        "eyebrow": "01 · Le principe",
+        "headline": "Un compte que tu remplis, l'État qui te rembourse",
+        "body": "L'épargne pension, c'est un versement que tu fais chaque année sur un compte dédié — et une partie de ce montant te revient directement sous forme de réduction d'impôt.",
+        "highlight": "réduction d'impôt",
+        "voix_off": "L'épargne pension, c'est un versement que tu fais chaque année sur un compte dédié. Et une partie de ce montant te revient directement, sous forme de réduction d'impôt."
+      },
+      {
+        "type": "stat",
+        "eyebrow": "02 · L'avantage fiscal",
+        "stat_number": "25-30%",
+        "stat_label": "de réduction d'impôt",
+        "body": "Le pourcentage dépend du plafond que tu choisis. Plus le plafond est élevé, plus le taux de réduction baisse — les deux paliers et les montants sont réactualisés chaque année.",
+        "highlight": null,
+        "voix_off": "Concrètement, ça représente vingt-cinq à trente pour cent de réduction d'impôt. Le pourcentage dépend du plafond que tu choisis, et les montants sont réactualisés chaque année."
+      },
+      {
+        "type": "myth",
+        "eyebrow": "03 · Mythe vs réalité",
+        "headline": "\"C'est réservé aux indépendants\"",
+        "myth": "Fausse idée reçue",
+        "reality": "L'épargne pension est justement pensée pour compléter la pension légale de tout le monde — salariés compris, et souvent en priorité.",
+        "highlight": null,
+        "voix_off": "On me dit souvent : c'est réservé aux indépendants. C'est faux. L'épargne pension est justement pensée pour compléter la pension légale de tout le monde, salariés compris, et souvent en priorité."
+      },
+      {
+        "type": "list",
+        "eyebrow": "04 · Comment ça marche",
+        "headline": "Deux formules possibles",
+        "items": [
+          "Fonds d'épargne pension : rendement lié aux marchés",
+          "Assurance épargne pension : capital + taux garanti",
+          "Les deux ouvrent le même avantage fiscal",
+          "Le choix dépend de ton horizon et ta tolérance au risque"
+        ],
+        "highlight": null,
+        "voix_off": "Deux formules existent : un fonds d'épargne pension, avec un rendement lié aux marchés, ou une assurance épargne pension, avec un capital et un taux garanti. Les deux ouvrent le même avantage fiscal."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "05 · L'erreur fréquente",
+        "headline": "Attendre décembre pour verser",
+        "body": "Verser en une fois en fin d'année fait perdre des mois de rendement composé. Étaler les versements sur l'année, dès janvier, change beaucoup sur 20-30 ans.",
+        "highlight": "rendement composé",
+        "voix_off": "L'erreur la plus fréquente ? Attendre décembre pour tout verser d'un coup. Étaler tes versements dès janvier change beaucoup sur vingt à trente ans, grâce au rendement composé."
+      },
+      {
+        "type": "cta",
+        "headline": "Combien peux-tu économiser cette année ?",
+        "body": "Je calcule ton avantage fiscal exact avec toi, gratuitement.",
+        "keyword_label": "DM \"ÉPARGNE\"",
+        "voix_off": "Combien peux-tu économiser cette année ? Je calcule ton avantage fiscal exact avec toi, gratuitement. DM-moi ÉPARGNE."
+      }
     ]
   },
   {
@@ -22,13 +76,61 @@
     "dm_keyword": "PLAN",
     "sources": "SPF Finances · Wikifin.be — fiscalité de l'épargne long terme",
     "slides": [
-      { "type": "cover", "eyebrow": "GUIDE COMPLET", "headline": "Ton épargne dort sur un compte à 0,5%.\nIl existe mieux.", "highlight": "Il existe mieux." },
-      { "type": "fact", "eyebrow": "01 · La différence", "headline": "Pas juste un livret d'épargne", "body": "L'épargne à long terme combine un capital, un rendement, et un avantage fiscal à la clé — ce qu'un compte épargne classique ne t'offre jamais.", "highlight": "avantage fiscal" },
-      { "type": "fact", "eyebrow": "02 · Le point à vérifier", "headline": "Un panier fiscal parfois déjà utilisé", "body": "Si tu as un crédit hypothécaire en cours avec une assurance solde restant dû, elle peut déjà occuper une partie de ce même avantage fiscal. On vérifie ça ensemble avant de démarrer.", "highlight": null },
-      { "type": "stat", "eyebrow": "03 · L'horizon", "stat_number": "10+", "stat_label": "ans, pour que ça ait du sens", "body": "Ce produit est pensé pour un projet à horizon long : un achat futur, les études des enfants, ou simplement construire un capital de transmission.", "highlight": null },
-      { "type": "fact", "eyebrow": "04 · À la sortie", "headline": "Une fiscalité plus douce si tu vas au bout", "body": "Le contrat conservé jusqu'à l'échéance bénéficie d'une taxation réduite, bien plus favorable qu'un retrait anticipé.", "highlight": "taxation réduite" },
-      { "type": "fact", "eyebrow": "05 · L'erreur fréquente", "headline": "Retirer avant l'échéance", "body": "Un retrait anticipé peut faire perdre une bonne partie de l'avantage fiscal accumulé. Ce produit se construit avec de la patience.", "highlight": null },
-      { "type": "cta", "headline": "Ce produit correspond-il à ta situation ?", "body": "On regarde ça ensemble, sans engagement.", "keyword_label": "DM \"PLAN\"" }
+      {
+        "type": "cover",
+        "eyebrow": "GUIDE COMPLET",
+        "headline": "Ton épargne dort sur un compte à 0,5%.\nIl existe mieux.",
+        "highlight": "Il existe mieux.",
+        "voix_off": "Ton épargne dort sur un compte à zéro virgule cinq pour cent. Il existe mieux."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "01 · La différence",
+        "headline": "Pas juste un livret d'épargne",
+        "body": "L'épargne à long terme combine un capital, un rendement, et un avantage fiscal à la clé — ce qu'un compte épargne classique ne t'offre jamais.",
+        "highlight": "avantage fiscal",
+        "voix_off": "L'épargne à long terme combine un capital, un rendement, et un avantage fiscal à la clé. Ce qu'un compte épargne classique ne t'offre jamais."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "02 · Le point à vérifier",
+        "headline": "Un panier fiscal parfois déjà utilisé",
+        "body": "Si tu as un crédit hypothécaire en cours avec une assurance solde restant dû, elle peut déjà occuper une partie de ce même avantage fiscal. On vérifie ça ensemble avant de démarrer.",
+        "highlight": null,
+        "voix_off": "Un point à vérifier avant de démarrer : si tu as un crédit hypothécaire en cours avec une assurance solde restant dû, elle peut déjà occuper une partie de ce même avantage fiscal."
+      },
+      {
+        "type": "stat",
+        "eyebrow": "03 · L'horizon",
+        "stat_number": "10+",
+        "stat_label": "ans, pour que ça ait du sens",
+        "body": "Ce produit est pensé pour un projet à horizon long : un achat futur, les études des enfants, ou simplement construire un capital de transmission.",
+        "highlight": null,
+        "voix_off": "Ce produit est pensé pour un horizon de dix ans ou plus : un achat futur, les études des enfants, ou simplement construire un capital de transmission."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "04 · À la sortie",
+        "headline": "Une fiscalité plus douce si tu vas au bout",
+        "body": "Le contrat conservé jusqu'à l'échéance bénéficie d'une taxation réduite, bien plus favorable qu'un retrait anticipé.",
+        "highlight": "taxation réduite",
+        "voix_off": "À la sortie, si tu vas jusqu'à l'échéance du contrat, tu bénéficies d'une taxation réduite, bien plus favorable qu'un retrait anticipé."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "05 · L'erreur fréquente",
+        "headline": "Retirer avant l'échéance",
+        "body": "Un retrait anticipé peut faire perdre une bonne partie de l'avantage fiscal accumulé. Ce produit se construit avec de la patience.",
+        "highlight": null,
+        "voix_off": "L'erreur fréquente, c'est de retirer avant l'échéance. Ça peut faire perdre une bonne partie de l'avantage fiscal accumulé. Ce produit se construit avec de la patience."
+      },
+      {
+        "type": "cta",
+        "headline": "Ce produit correspond-il à ta situation ?",
+        "body": "On regarde ça ensemble, sans engagement.",
+        "keyword_label": "DM \"PLAN\"",
+        "voix_off": "Ce produit correspond-il à ta situation ? On regarde ça ensemble, sans engagement. DM-moi PLAN."
+      }
     ]
   },
   {
@@ -38,13 +140,66 @@
     "dm_keyword": "ENFANT",
     "sources": "Wikifin.be — épargne et donation",
     "slides": [
-      { "type": "cover", "eyebrow": "GUIDE COMPLET", "headline": "Le meilleur moment pour épargner pour ton enfant ?\nLe jour de sa naissance.", "highlight": "Le jour de sa naissance." },
-      { "type": "stat", "eyebrow": "01 · L'effet du temps", "stat_number": "18 ans", "stat_label": "d'intérêts composés qui jouent pour toi", "body": "Plus tu commences tôt, plus chaque euro versé a de temps pour travailler. Un petit montant mensuel démarré à la naissance dépasse souvent un montant plus élevé démarré 10 ans plus tard.", "highlight": null },
-      { "type": "list", "eyebrow": "02 · Objectifs typiques", "headline": "Un capital pour les moments clés", "items": ["Les études supérieures", "Le permis de conduire", "Le premier logement", "Un coup de pouce à l'entrée dans la vie active"], "highlight": null },
-      { "type": "fact", "eyebrow": "03 · La souplesse", "headline": "Versements libres ou programmés", "body": "Tu ajustes selon ton budget du moment : un virement automatique de quelques euros par mois, ou des versements ponctuels quand tu peux.", "highlight": null },
-      { "type": "fact", "eyebrow": "04 · Qui peut verser", "headline": "Un cadeau qui a du sens", "body": "Parents, grands-parents, parrain, marraine : plutôt qu'un jouet de plus, un versement sur ce plan a un impact qui dure des années.", "highlight": null },
-      { "type": "fact", "eyebrow": "05 · L'erreur fréquente", "headline": "Attendre \"d'avoir plus de moyens\"", "body": "Commencer tôt, même petit, bat presque toujours verser plus tard. Le temps perdu ne se rattrape pas, même avec des versements plus élevés.", "highlight": null },
-      { "type": "cta", "headline": "Un plan adapté à l'âge de ton enfant", "body": "Je te propose une simulation gratuite, sur mesure.", "keyword_label": "DM \"ENFANT\"" }
+      {
+        "type": "cover",
+        "eyebrow": "GUIDE COMPLET",
+        "headline": "Le meilleur moment pour épargner pour ton enfant ?\nLe jour de sa naissance.",
+        "highlight": "Le jour de sa naissance.",
+        "voix_off": "Le meilleur moment pour épargner pour ton enfant ? Le jour de sa naissance."
+      },
+      {
+        "type": "stat",
+        "eyebrow": "01 · L'effet du temps",
+        "stat_number": "18 ans",
+        "stat_label": "d'intérêts composés qui jouent pour toi",
+        "body": "Plus tu commences tôt, plus chaque euro versé a de temps pour travailler. Un petit montant mensuel démarré à la naissance dépasse souvent un montant plus élevé démarré 10 ans plus tard.",
+        "highlight": null,
+        "voix_off": "Dix-huit ans d'intérêts composés qui jouent pour toi. Plus tu commences tôt, plus chaque euro versé a de temps pour travailler."
+      },
+      {
+        "type": "list",
+        "eyebrow": "02 · Objectifs typiques",
+        "headline": "Un capital pour les moments clés",
+        "items": [
+          "Les études supérieures",
+          "Le permis de conduire",
+          "Le premier logement",
+          "Un coup de pouce à l'entrée dans la vie active"
+        ],
+        "highlight": null,
+        "voix_off": "Les objectifs typiques ? Les études supérieures, le permis de conduire, le premier logement, ou un coup de pouce à l'entrée dans la vie active."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "03 · La souplesse",
+        "headline": "Versements libres ou programmés",
+        "body": "Tu ajustes selon ton budget du moment : un virement automatique de quelques euros par mois, ou des versements ponctuels quand tu peux.",
+        "highlight": null,
+        "voix_off": "Tu ajustes selon ton budget du moment : un virement automatique de quelques euros par mois, ou des versements ponctuels quand tu peux."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "04 · Qui peut verser",
+        "headline": "Un cadeau qui a du sens",
+        "body": "Parents, grands-parents, parrain, marraine : plutôt qu'un jouet de plus, un versement sur ce plan a un impact qui dure des années.",
+        "highlight": null,
+        "voix_off": "Et qui peut verser ? Les parents, les grands-parents, un parrain, une marraine. Plutôt qu'un jouet de plus, un versement sur ce plan a un impact qui dure des années."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "05 · L'erreur fréquente",
+        "headline": "Attendre \"d'avoir plus de moyens\"",
+        "body": "Commencer tôt, même petit, bat presque toujours verser plus tard. Le temps perdu ne se rattrape pas, même avec des versements plus élevés.",
+        "highlight": null,
+        "voix_off": "L'erreur fréquente, c'est d'attendre d'avoir plus de moyens. Commencer tôt, même petit, bat presque toujours verser plus tard."
+      },
+      {
+        "type": "cta",
+        "headline": "Un plan adapté à l'âge de ton enfant",
+        "body": "Je te propose une simulation gratuite, sur mesure.",
+        "keyword_label": "DM \"ENFANT\"",
+        "voix_off": "Je te propose un plan adapté à l'âge de ton enfant, gratuitement. DM-moi ENFANT."
+      }
     ]
   },
   {
@@ -54,13 +209,66 @@
     "dm_keyword": "SANTÉ",
     "sources": "INAMI · mutualités — remboursements et franchises",
     "slides": [
-      { "type": "cover", "eyebrow": "GUIDE COMPLET", "headline": "Ta mutuelle rembourse une partie.\nPas tout.", "highlight": "Pas tout." },
-      { "type": "fact", "eyebrow": "01 · La base légale", "headline": "Ce que couvre l'assurance obligatoire", "body": "L'assurance maladie-invalidité rembourse une base de soins, avec des plafonds, des franchises, et des tickets modérateurs qui restent à ta charge.", "highlight": null },
-      { "type": "list", "eyebrow": "02 · Le trou fréquent", "headline": "Ce qui n'est souvent pas couvert", "items": ["Chambre individuelle à l'hôpital", "Dépassements d'honoraires des médecins", "Certains soins ambulatoires et dentaires", "Des franchises qui restent entièrement à ta charge"], "highlight": null },
-      { "type": "fact", "eyebrow": "03 · La solution courante", "headline": "L'assurance hospitalisation complémentaire", "body": "Beaucoup de salariés en ont une via leur employeur (assurance groupe). La vraie question : est-elle suffisante, et que devient-elle si tu changes d'emploi ?", "highlight": null },
-      { "type": "myth", "eyebrow": "04 · Mythe vs réalité", "headline": "\"L'assurance groupe de mon employeur me suffit à vie\"", "myth": "Idée reçue dangereuse", "reality": "Une assurance groupe s'arrête souvent quand tu quittes l'entreprise. Une couverture personnelle, elle, te suit toute ta carrière.", "highlight": null },
-      { "type": "fact", "eyebrow": "05 · L'erreur fréquente", "headline": "Ne jamais vérifier son contrat", "body": "Beaucoup découvrent les franchises et les exclusions au moment de l'hospitalisation — le pire moment pour le découvrir.", "highlight": null },
-      { "type": "cta", "headline": "Que couvre vraiment ta situation actuelle ?", "body": "Je fais le point avec toi, gratuitement.", "keyword_label": "DM \"SANTÉ\"" }
+      {
+        "type": "cover",
+        "eyebrow": "GUIDE COMPLET",
+        "headline": "Ta mutuelle rembourse une partie.\nPas tout.",
+        "highlight": "Pas tout.",
+        "voix_off": "Ta mutuelle rembourse une partie. Pas tout."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "01 · La base légale",
+        "headline": "Ce que couvre l'assurance obligatoire",
+        "body": "L'assurance maladie-invalidité rembourse une base de soins, avec des plafonds, des franchises, et des tickets modérateurs qui restent à ta charge.",
+        "highlight": null,
+        "voix_off": "L'assurance maladie-invalidité obligatoire rembourse une base de soins, avec des plafonds, des franchises, et des tickets modérateurs qui restent à ta charge."
+      },
+      {
+        "type": "list",
+        "eyebrow": "02 · Le trou fréquent",
+        "headline": "Ce qui n'est souvent pas couvert",
+        "items": [
+          "Chambre individuelle à l'hôpital",
+          "Dépassements d'honoraires des médecins",
+          "Certains soins ambulatoires et dentaires",
+          "Des franchises qui restent entièrement à ta charge"
+        ],
+        "highlight": null,
+        "voix_off": "Le trou fréquent ? La chambre individuelle à l'hôpital, les dépassements d'honoraires, certains soins ambulatoires et dentaires, et des franchises qui restent entièrement à ta charge."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "03 · La solution courante",
+        "headline": "L'assurance hospitalisation complémentaire",
+        "body": "Beaucoup de salariés en ont une via leur employeur (assurance groupe). La vraie question : est-elle suffisante, et que devient-elle si tu changes d'emploi ?",
+        "highlight": null,
+        "voix_off": "Beaucoup de salariés ont une assurance hospitalisation complémentaire via leur employeur. La vraie question : est-elle suffisante, et que devient-elle si tu changes d'emploi ?"
+      },
+      {
+        "type": "myth",
+        "eyebrow": "04 · Mythe vs réalité",
+        "headline": "\"L'assurance groupe de mon employeur me suffit à vie\"",
+        "myth": "Idée reçue dangereuse",
+        "reality": "Une assurance groupe s'arrête souvent quand tu quittes l'entreprise. Une couverture personnelle, elle, te suit toute ta carrière.",
+        "highlight": null,
+        "voix_off": "On croit souvent que l'assurance groupe de son employeur suffit à vie. C'est une idée reçue dangereuse. Elle s'arrête souvent quand tu quittes l'entreprise. Une couverture personnelle, elle, te suit toute ta carrière."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "05 · L'erreur fréquente",
+        "headline": "Ne jamais vérifier son contrat",
+        "body": "Beaucoup découvrent les franchises et les exclusions au moment de l'hospitalisation — le pire moment pour le découvrir.",
+        "highlight": null,
+        "voix_off": "L'erreur fréquente, c'est de ne jamais vérifier son contrat. Beaucoup découvrent les franchises et les exclusions au moment de l'hospitalisation, le pire moment pour le découvrir."
+      },
+      {
+        "type": "cta",
+        "headline": "Que couvre vraiment ta situation actuelle ?",
+        "body": "Je fais le point avec toi, gratuitement.",
+        "keyword_label": "DM \"SANTÉ\"",
+        "voix_off": "Que couvre vraiment ta situation actuelle ? Je fais le point avec toi, gratuitement. DM-moi SANTÉ."
+      }
     ]
   },
   {
@@ -70,13 +278,60 @@
     "dm_keyword": "OBSÈQUES",
     "sources": "SPF Économie — assurances obsèques",
     "slides": [
-      { "type": "cover", "eyebrow": "GUIDE COMPLET", "headline": "Personne n'aime en parler.\nMais ne pas en parler coûte cher à ceux qui restent.", "highlight": "coûte cher à ceux qui restent." },
-      { "type": "fact", "eyebrow": "01 · Le coût réel", "headline": "Des frais à avancer, rapidement", "body": "Les frais funéraires doivent souvent être payés avant même le règlement de la succession — un stress financier en plus du deuil.", "highlight": null },
-      { "type": "fact", "eyebrow": "02 · Le mécanisme", "headline": "Un capital versé rapidement", "body": "Une assurance obsèques prévoit un capital dédié, versé rapidement à la personne désignée, sans attendre les démarches de succession.", "highlight": "capital dédié" },
-      { "type": "fact", "eyebrow": "03 · L'avantage", "headline": "Soulager sa famille d'une charge en plus", "body": "Ce n'est pas seulement financier : c'est éviter à tes proches d'avoir à gérer l'argent en plus de l'organisation, dans un moment déjà difficile.", "highlight": null },
-      { "type": "fact", "eyebrow": "04 · L'accessibilité", "headline": "Plus tu souscris jeune, moins ça coûte", "body": "Les primes sont calculées sur l'âge à la souscription. Souscrire tôt, même pour un petit capital, les garde légères sur toute la durée du contrat.", "highlight": "moins ça coûte" },
-      { "type": "fact", "eyebrow": "05 · L'erreur fréquente", "headline": "Laisser ça \"pour plus tard\"", "body": "Le sujet est inconfortable, donc reporté indéfiniment — alors que c'est justement le fait d'attendre qui coûte le plus cher.", "highlight": null },
-      { "type": "cta", "headline": "On en parle simplement, sans tabou", "body": "Une conversation posée, sans engagement.", "keyword_label": "DM \"OBSÈQUES\"" }
+      {
+        "type": "cover",
+        "eyebrow": "GUIDE COMPLET",
+        "headline": "Personne n'aime en parler.\nMais ne pas en parler coûte cher à ceux qui restent.",
+        "highlight": "coûte cher à ceux qui restent.",
+        "voix_off": "Personne n'aime en parler. Mais ne pas en parler coûte cher à ceux qui restent."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "01 · Le coût réel",
+        "headline": "Des frais à avancer, rapidement",
+        "body": "Les frais funéraires doivent souvent être payés avant même le règlement de la succession — un stress financier en plus du deuil.",
+        "highlight": null,
+        "voix_off": "Les frais funéraires doivent souvent être payés avant même le règlement de la succession. Un stress financier en plus du deuil."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "02 · Le mécanisme",
+        "headline": "Un capital versé rapidement",
+        "body": "Une assurance obsèques prévoit un capital dédié, versé rapidement à la personne désignée, sans attendre les démarches de succession.",
+        "highlight": "capital dédié",
+        "voix_off": "Une assurance obsèques prévoit un capital dédié, versé rapidement à la personne désignée, sans attendre les démarches de succession."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "03 · L'avantage",
+        "headline": "Soulager sa famille d'une charge en plus",
+        "body": "Ce n'est pas seulement financier : c'est éviter à tes proches d'avoir à gérer l'argent en plus de l'organisation, dans un moment déjà difficile.",
+        "highlight": null,
+        "voix_off": "Ce n'est pas seulement financier. C'est éviter à tes proches d'avoir à gérer l'argent en plus de l'organisation, dans un moment déjà difficile."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "04 · L'accessibilité",
+        "headline": "Plus tu souscris jeune, moins ça coûte",
+        "body": "Les primes sont calculées sur l'âge à la souscription. Souscrire tôt, même pour un petit capital, les garde légères sur toute la durée du contrat.",
+        "highlight": "moins ça coûte",
+        "voix_off": "Plus tu souscris jeune, moins ça coûte. Les primes sont calculées sur l'âge à la souscription, et restent légères sur toute la durée du contrat."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "05 · L'erreur fréquente",
+        "headline": "Laisser ça \"pour plus tard\"",
+        "body": "Le sujet est inconfortable, donc reporté indéfiniment — alors que c'est justement le fait d'attendre qui coûte le plus cher.",
+        "highlight": null,
+        "voix_off": "L'erreur fréquente, c'est de laisser ça pour plus tard. Le sujet est inconfortable, donc reporté indéfiniment. Alors que c'est justement le fait d'attendre qui coûte le plus cher."
+      },
+      {
+        "type": "cta",
+        "headline": "On en parle simplement, sans tabou",
+        "body": "Une conversation posée, sans engagement.",
+        "keyword_label": "DM \"OBSÈQUES\"",
+        "voix_off": "On en parle simplement, sans tabou, sans engagement. DM-moi OBSÈQUES."
+      }
     ]
   },
   {
@@ -86,13 +341,66 @@
     "dm_keyword": "INCAPACITÉ",
     "sources": "ONSS · INAMI — salaire garanti et indemnités",
     "slides": [
-      { "type": "cover", "eyebrow": "GUIDE COMPLET", "headline": "Un salarié malade touche 100% de son salaire.\nMais un mois seulement.", "highlight": "Mais un mois seulement." },
-      { "type": "stat", "eyebrow": "01 · Le premier mois", "stat_number": "100%", "stat_label": "du salaire, payé par l'employeur (loi)", "body": "C'est le salaire garanti : la loi belge oblige l'employeur à maintenir ta rémunération complète pendant le premier mois d'incapacité.", "highlight": null },
-      { "type": "fact", "eyebrow": "02 · Ensuite", "headline": "La mutuelle prend le relais — plafonnée", "body": "Passé ce mois, c'est un pourcentage de ton salaire, plafonné. Si tu gagnes au-dessus du plafond, l'écart avec ton revenu réel peut être important.", "highlight": "plafonné" },
-      { "type": "fact", "eyebrow": "03 · Sur la durée", "headline": "Le plafond ne suit pas ton salaire", "body": "En incapacité longue durée, ce plafond reste fixe — alors que tes charges, elles, continuent d'augmenter avec le temps.", "highlight": null },
-      { "type": "list", "eyebrow": "04 · Le trou invisible", "headline": "Ce qui s'arrête souvent avec le salaire", "items": ["Primes et bonus liés à la performance", "Avantages extra-légaux (voiture, chèques-repas)", "Cotisation pension complémentaire réduite", "Le niveau de vie du foyer, en général"], "highlight": null },
-      { "type": "fact", "eyebrow": "05 · La solution", "headline": "Un revenu garanti complémentaire", "body": "Il comble l'écart entre le plafond légal de la mutuelle et ton train de vie réel — pour que t'arrêter ne veuille pas dire tout perdre.", "highlight": "revenu garanti complémentaire" },
-      { "type": "cta", "headline": "Connais-tu ton écart réel ?", "body": "Je te montre le chiffre exact, gratuitement.", "keyword_label": "DM \"INCAPACITÉ\"" }
+      {
+        "type": "cover",
+        "eyebrow": "GUIDE COMPLET",
+        "headline": "Un salarié malade touche 100% de son salaire.\nMais un mois seulement.",
+        "highlight": "Mais un mois seulement.",
+        "voix_off": "Un salarié malade touche cent pour cent de son salaire. Mais un mois seulement."
+      },
+      {
+        "type": "stat",
+        "eyebrow": "01 · Le premier mois",
+        "stat_number": "100%",
+        "stat_label": "du salaire, payé par l'employeur (loi)",
+        "body": "C'est le salaire garanti : la loi belge oblige l'employeur à maintenir ta rémunération complète pendant le premier mois d'incapacité.",
+        "highlight": null,
+        "voix_off": "C'est le salaire garanti : la loi belge oblige l'employeur à maintenir ta rémunération complète pendant le premier mois d'incapacité."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "02 · Ensuite",
+        "headline": "La mutuelle prend le relais — plafonnée",
+        "body": "Passé ce mois, c'est un pourcentage de ton salaire, plafonné. Si tu gagnes au-dessus du plafond, l'écart avec ton revenu réel peut être important.",
+        "highlight": "plafonné",
+        "voix_off": "Passé ce mois, c'est la mutuelle qui prend le relais, à un pourcentage de ton salaire, plafonné. Si tu gagnes au-dessus du plafond, l'écart avec ton revenu réel peut être important."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "03 · Sur la durée",
+        "headline": "Le plafond ne suit pas ton salaire",
+        "body": "En incapacité longue durée, ce plafond reste fixe — alors que tes charges, elles, continuent d'augmenter avec le temps.",
+        "highlight": null,
+        "voix_off": "Et en incapacité longue durée, ce plafond reste fixe, alors que tes charges, elles, continuent d'augmenter avec le temps."
+      },
+      {
+        "type": "list",
+        "eyebrow": "04 · Le trou invisible",
+        "headline": "Ce qui s'arrête souvent avec le salaire",
+        "items": [
+          "Primes et bonus liés à la performance",
+          "Avantages extra-légaux (voiture, chèques-repas)",
+          "Cotisation pension complémentaire réduite",
+          "Le niveau de vie du foyer, en général"
+        ],
+        "highlight": null,
+        "voix_off": "Ce qui s'arrête souvent avec le salaire ? Les primes et bonus liés à la performance, les avantages extra-légaux comme la voiture ou les chèques-repas, la cotisation pension complémentaire réduite, et le niveau de vie du foyer en général."
+      },
+      {
+        "type": "fact",
+        "eyebrow": "05 · La solution",
+        "headline": "Un revenu garanti complémentaire",
+        "body": "Il comble l'écart entre le plafond légal de la mutuelle et ton train de vie réel — pour que t'arrêter ne veuille pas dire tout perdre.",
+        "highlight": "revenu garanti complémentaire",
+        "voix_off": "La solution, c'est un revenu garanti complémentaire. Il comble l'écart entre le plafond légal de la mutuelle et ton train de vie réel, pour que t'arrêter ne veuille pas dire tout perdre."
+      },
+      {
+        "type": "cta",
+        "headline": "Connais-tu ton écart réel ?",
+        "body": "Je te montre le chiffre exact, gratuitement.",
+        "keyword_label": "DM \"INCAPACITÉ\"",
+        "voix_off": "Connais-tu ton écart réel ? Je te montre le chiffre exact, gratuitement. DM-moi INCAPACITÉ."
+      }
     ]
   }
 ]

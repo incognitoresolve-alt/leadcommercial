@@ -47,5 +47,47 @@
     "pilier": "COMPARATIF",
     "description": "Le vrai écart de protection sociale entre un salarié et un indépendant, sur maladie, pension et décès. CTA : DM \"BILAN\".",
     "duration": "0:43"
+  },
+  {
+    "file": "reel-epargne-pension.mp4",
+    "title": "Reel — Épargne Pension",
+    "pilier": "EPARGNE",
+    "description": "Version Reel/TikTok du carrousel Épargne Pension, voix off + mêmes visuels. CTA : DM \"ÉPARGNE\".",
+    "duration": "0:52"
+  },
+  {
+    "file": "reel-epargne-long-terme.mp4",
+    "title": "Reel — Épargne à Long Terme",
+    "pilier": "PLAN",
+    "description": "Version Reel/TikTok du carrousel Épargne à Long Terme, voix off + mêmes visuels. CTA : DM \"PLAN\".",
+    "duration": "0:46"
+  },
+  {
+    "file": "reel-epargne-enfant.mp4",
+    "title": "Reel — Épargne Enfant",
+    "pilier": "ENFANT",
+    "description": "Version Reel/TikTok du carrousel Épargne Enfant, voix off + mêmes visuels. CTA : DM \"ENFANT\".",
+    "duration": "0:41"
+  },
+  {
+    "file": "reel-couverture-sante.mp4",
+    "title": "Reel — Couverture Santé",
+    "pilier": "SANTE",
+    "description": "Version Reel/TikTok du carrousel Couverture Santé, voix off + mêmes visuels. CTA : DM \"SANTÉ\".",
+    "duration": "0:50"
+  },
+  {
+    "file": "reel-couverture-obseques.mp4",
+    "title": "Reel — Couverture Obsèques",
+    "pilier": "OBSEQUES",
+    "description": "Version Reel/TikTok du carrousel Couverture Obsèques, voix off + mêmes visuels. CTA : DM \"OBSÈQUES\".",
+    "duration": "0:43"
+  },
+  {
+    "file": "reel-incapacite-travail-salarie.mp4",
+    "title": "Reel — Incapacité de Travail (salarié)",
+    "pilier": "INCAPACITE",
+    "description": "Version Reel/TikTok du carrousel Incapacité de Travail (salarié), voix off + mêmes visuels. CTA : DM \"INCAPACITÉ\".",
+    "duration": "0:50"
   }
 ]

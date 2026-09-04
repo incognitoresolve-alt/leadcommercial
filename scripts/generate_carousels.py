@@ -166,7 +166,7 @@ def top_hairline(img, accent):
     draw.rectangle([0, 0, W, 6], fill=accent)
 
 
-def render_cover(entry, slide, idx, total):
+def render_cover(entry, slide, idx, total, for_video=False):
     accent = hex_to_rgb(entry["accent"])
     img = navy_gradient()
     draw = ImageDraw.Draw(img)
@@ -187,10 +187,11 @@ def render_cover(entry, slide, idx, total):
     fnt_word = font(FONT_SANS_BOLD, 30)
     draw.text((MARGIN, H - 108), "BORIS AKOE", font=fnt_word, fill=WHITE)
 
-    swipe = "GLISSE →"
-    fnt_swipe = font(FONT_SANS_BOLD, 26)
-    w, _, _ = measure(draw, swipe, fnt_swipe)
-    draw.text((W - MARGIN - w, H - 104), swipe, font=fnt_swipe, fill=accent)
+    if not for_video:
+        swipe = "GLISSE →"
+        fnt_swipe = font(FONT_SANS_BOLD, 26)
+        w, _, _ = measure(draw, swipe, fnt_swipe)
+        draw.text((W - MARGIN - w, H - 104), swipe, font=fnt_swipe, fill=accent)
 
     return img
 

@@ -12,7 +12,7 @@ db.exec(`
   CREATE TABLE IF NOT EXISTS leads (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
-    pilier TEXT NOT NULL,               -- 'ECART' ou 'KIT'
+    pilier TEXT NOT NULL,               -- ECART, KIT, BILAN, EPARGNE, PLAN, ENFANT, SANTE, OBSEQUES, INCAPACITE
     nom TEXT,
     email TEXT,
     telephone TEXT,

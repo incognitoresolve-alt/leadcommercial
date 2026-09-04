@@ -3,6 +3,11 @@ const db = require('./db');
 
 const router = express.Router();
 
+const PILIERS = [
+  'ECART', 'KIT', 'BILAN',
+  'EPARGNE', 'PLAN', 'ENFANT', 'SANTE', 'OBSEQUES', 'INCAPACITE',
+];
+
 const insertLead = db.prepare(`
   INSERT INTO leads (pilier, nom, email, telephone, profil, age, revenu_mensuel, annees_activite, ecart_estime, pension_estimee, source, notes)
   VALUES (@pilier, @nom, @email, @telephone, @profil, @age, @revenu_mensuel, @annees_activite, @ecart_estime, @pension_estimee, @source, @notes)
@@ -11,8 +16,8 @@ const insertLead = db.prepare(`
 router.post('/', (req, res) => {
   const body = req.body || {};
   const pilier = String(body.pilier || '').toUpperCase();
-  if (!['ECART', 'KIT', 'BILAN'].includes(pilier)) {
-    return res.status(400).json({ error: "pilier doit etre 'ECART', 'KIT' ou 'BILAN'" });
+  if (!PILIERS.includes(pilier)) {
+    return res.status(400).json({ error: `pilier doit etre l'un de : ${PILIERS.join(', ')}` });
   }
   if (!body.email && !body.telephone) {
     return res.status(400).json({ error: 'email ou telephone requis pour recontacter le lead' });

@@ -7,6 +7,13 @@ Outil de génération de leads pour un funnel indépendants/professions de sant�
 - **Simulateur "Mon Écart Pension"** (`/`) : calcule un écart pension indicatif à partir de l'âge, du revenu net mensuel et des années d'activité déjà prestées, puis capture le lead (DM "ÉCART" équivalent web).
 - **Page Kit Sérénité & Transmission** (`/kit.html`) : capture de lead pour le guide 58 pages (DM "KIT" équivalent web).
 - **Page Bilan gratuit** (`/bilan.html`) : capture de lead pour un bilan protection (incapacité, maladie, décès, comparatif salarié) — DM "BILAN".
+- **Page Solutions** (`/solutions.html`) : hub vers les 6 pages produit ci-dessous, chacune avec son propre mot-clé DM — pensées pour recevoir le trafic des carrousels Instagram/TikTok et transformer les DM en leads trackés :
+  - `/epargne-pension.html` — DM "ÉPARGNE"
+  - `/epargne-long-terme.html` — DM "PLAN"
+  - `/epargne-enfant.html` — DM "ENFANT"
+  - `/couverture-sante.html` — DM "SANTÉ"
+  - `/couverture-obseques.html` — DM "OBSÈQUES"
+  - `/incapacite-salarie.html` — DM "INCAPACITÉ"
 - **Page Vidéos** (`/videos.html`) : les vidéos verticales générées à partir des scripts, prévisualisables et téléchargeables.
 - **Admin leads** (`/admin.html`) : liste des leads capturés (protégée par `ADMIN_TOKEN`) + export CSV.
 
@@ -22,7 +29,7 @@ Le serveur écoute sur `http://localhost:3000`. Les leads sont stockés dans `da
 ## API
 
 - `POST /api/simulate` — `{ age, revenuMensuel, anneesActivite, profil }` → `{ pensionEstimee, ecartEstime, ... }`
-- `POST /api/leads` — `{ pilier: 'ECART'|'KIT'|'BILAN', nom, email, telephone, ... }`
+- `POST /api/leads` — `{ pilier: 'ECART'|'KIT'|'BILAN'|'EPARGNE'|'PLAN'|'ENFANT'|'SANTE'|'OBSEQUES'|'INCAPACITE', nom, email, telephone, ... }`. Les 6 pages produit utilisent un handler générique (`public/js/produit-lead.js`) qui lit `data-pilier` / `data-source` / `data-success-message` sur le `<form>`.
 - `GET /api/leads?token=...` — liste des leads (JSON)
 - `GET /api/leads/export.csv?token=...` — export CSV
 - `PATCH /api/leads/:id?token=...` — mise à jour `statut` / `notes`

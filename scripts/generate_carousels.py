@@ -141,10 +141,10 @@ def eyebrow(draw, text, color, y, align="left", canvas_w=W):
 def footer(draw, wordmark, sources, accent):
     fnt_word = font(FONT_SANS_BOLD, 24)
     fnt_src = font(FONT_SANS, 20)
-    draw.text((MARGIN, H - 78), wordmark, font=fnt_word, fill=TEXT_MUTED_DARK)
+    draw.text((MARGIN, H - 96), wordmark, font=fnt_word, fill=TEXT_MUTED_DARK)
     if sources:
         w, _, _ = measure(draw, sources, fnt_src)
-        draw.text((W - MARGIN - w, H - 76), sources, font=fnt_src, fill=(150, 150, 145))
+        draw.text((W - MARGIN - w, H - 94), sources, font=fnt_src, fill=(150, 150, 145))
 
 
 def progress_dots(draw, idx, total, accent):
@@ -152,7 +152,7 @@ def progress_dots(draw, idx, total, accent):
     gap = 22
     total_w = total * (r * 2) + (total - 1) * gap
     x0 = (W - total_w) // 2
-    y = H - 40
+    y = H - 58
     for i in range(total):
         cx = x0 + i * (r * 2 + gap) + r
         if i == idx:
@@ -201,11 +201,11 @@ def render_content_shell(entry, slide, idx, total):
     draw = ImageDraw.Draw(img)
     top_hairline(img, accent)
 
-    eyebrow(draw, slide["eyebrow"], accent, 90)
+    eyebrow(draw, slide["eyebrow"], accent, 130)
     fnt_no = font(FONT_SANS, 24)
     label = f"{idx + 1} / {total}"
     w, _, _ = measure(draw, label, fnt_no)
-    draw.text((W - MARGIN - w, 90), label, font=fnt_no, fill=TEXT_MUTED_DARK)
+    draw.text((W - MARGIN - w, 130), label, font=fnt_no, fill=TEXT_MUTED_DARK)
 
     progress_dots(draw, idx, total, accent)
     footer(draw, "BORIS AKOE", entry.get("sources", ""), accent)
@@ -216,7 +216,7 @@ def render_fact(entry, slide, idx, total):
     img, draw, accent = render_content_shell(entry, slide, idx, total)
     headline_font = font(FONT_SERIF_BOLD, 58)
     y = draw_rich_text(draw, [slide["headline"]], slide.get("highlight"), headline_font,
-                        W - MARGIN * 2, 190, W, TEXT_NAVY, accent, align="left")
+                        W - MARGIN * 2, 230, W, TEXT_NAVY, accent, align="left")
     y += 30
     body_font = font(FONT_SANS, 34)
     draw_rich_text(draw, [slide["body"]], slide.get("highlight"), body_font,
@@ -227,10 +227,10 @@ def render_fact(entry, slide, idx, total):
 def render_stat(entry, slide, idx, total):
     img, draw, accent = render_content_shell(entry, slide, idx, total)
     stat_font = font(FONT_SERIF_BOLD, 130)
-    draw.text((MARGIN, 220), slide["stat_number"], font=stat_font, fill=accent)
+    draw.text((MARGIN, 260), slide["stat_number"], font=stat_font, fill=accent)
     label_font = font(FONT_SANS_BOLD, 34)
     _, sh, _ = measure(draw, slide["stat_number"], stat_font)
-    y = 220 + sh + 60
+    y = 260 + sh + 60
     draw_rich_text(draw, [slide["stat_label"]], None, label_font, W - MARGIN * 2, y, W,
                     TEXT_NAVY, accent, align="left", line_spacing=1.3)
     body_font = font(FONT_SANS, 32)
@@ -244,7 +244,7 @@ def render_myth(entry, slide, idx, total):
 
     # The headline holds the myth stated as a quote, in the lighter serif face.
     quote_font = font(FONT_SERIF, 46)
-    y = draw_rich_text(draw, [slide["headline"]], None, quote_font, W - MARGIN * 2, 190, W,
+    y = draw_rich_text(draw, [slide["headline"]], None, quote_font, W - MARGIN * 2, 230, W,
                         TEXT_NAVY, accent, align="left", line_spacing=1.25)
     y += 60
 
@@ -269,7 +269,7 @@ def render_myth(entry, slide, idx, total):
 def render_list(entry, slide, idx, total):
     img, draw, accent = render_content_shell(entry, slide, idx, total)
     headline_font = font(FONT_SERIF_BOLD, 54)
-    y = draw_rich_text(draw, [slide["headline"]], None, headline_font, W - MARGIN * 2, 190, W,
+    y = draw_rich_text(draw, [slide["headline"]], None, headline_font, W - MARGIN * 2, 230, W,
                         TEXT_NAVY, accent, align="left", line_spacing=1.2)
     y += 50
     item_font = font(FONT_SANS, 34)

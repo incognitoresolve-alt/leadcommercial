@@ -185,9 +185,7 @@ def render_cover(entry, slide, idx, total):
 
     draw.line([(MARGIN, H - 140), (W - MARGIN, H - 140)], fill=(255, 255, 255, 40), width=1)
     fnt_word = font(FONT_SANS_BOLD, 30)
-    fnt_tag = font(FONT_SANS, 24)
-    draw.text((MARGIN, H - 118), "BORIS AKOE", font=fnt_word, fill=WHITE)
-    draw.text((MARGIN, H - 84), "Conseiller en épargne & protection", font=fnt_tag, fill=TEXT_MUTED_LIGHT)
+    draw.text((MARGIN, H - 108), "BORIS AKOE", font=fnt_word, fill=WHITE)
 
     swipe = "GLISSE →"
     fnt_swipe = font(FONT_SANS_BOLD, 26)

@@ -39,6 +39,10 @@ async function calcDeces() {
   document.getElementById('deces-disclaimer').textContent = data.disclaimer;
   document.getElementById('deces-sources').textContent = 'Sources : ' + data.sources;
   decesResult.classList.add('show');
+
+  window.__lastSimResult = {
+    notes: `Simulation succession : ${data.regionLabel}, patrimoine ${fmtEUR(data.patrimoine)} → droits estimés ${fmtEUR(data.droitsSuccession)} (coût total ${fmtEUR(data.coutTotalMin)} – ${fmtEUR(data.coutTotalMax)}).`,
+  };
 }
 
 decesForm.addEventListener('submit', (e) => {

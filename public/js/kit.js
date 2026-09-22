@@ -3,12 +3,14 @@ const kitStatus = document.getElementById('kit-status');
 
 kitForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+  const simResult = window.__lastSimResult || {};
   const payload = {
     pilier: 'KIT',
     nom: document.getElementById('nom').value,
     email: document.getElementById('email').value,
     telephone: document.getElementById('telephone').value,
     source: 'kit-web',
+    notes: simResult.notes,
   };
 
   const res = await fetch('/api/leads', {

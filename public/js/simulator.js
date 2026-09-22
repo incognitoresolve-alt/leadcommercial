@@ -36,6 +36,14 @@ simForm.addEventListener('submit', async (e) => {
   }
 
   lastSimulation = data;
+  window.__lastSimResult = {
+    notes: `Simulation pension : ${data.profilLabel}, ${data.age} ans, ${fmtEUR(data.revenuMensuel)}/mois → écart ${data.ecartEstime > 0 ? '-' : '+'} ${fmtEUR(Math.abs(data.ecartEstime))}/mois vs pension moyenne ${fmtEUR(data.pensionMoyenne)}.`,
+    profil: data.profil,
+    age: data.age,
+    revenuMensuel: data.revenuMensuel,
+    ecartEstime: data.ecartEstime,
+    pensionEstimee: data.pensionMoyenne,
+  };
   const risk = data.ecartEstime > 0;
   ecartValue.textContent = (risk ? '− ' : '+ ') + fmtEUR(Math.abs(data.ecartEstime)) + ' / mois';
   ecartValue.style.color = risk ? 'var(--danger)' : 'var(--green)';

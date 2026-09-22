@@ -14,12 +14,19 @@ document.querySelectorAll('form[data-pilier]').forEach((form) => {
       return;
     }
 
+    const simResult = window.__lastSimResult || {};
     const payload = {
       pilier: form.dataset.pilier,
       nom: form.querySelector('[name="nom"]')?.value || '',
       email,
       telephone,
       source: form.dataset.source || 'produit-web',
+      notes: simResult.notes,
+      profil: simResult.profil,
+      age: simResult.age,
+      revenuMensuel: simResult.revenuMensuel,
+      ecartEstime: simResult.ecartEstime,
+      pensionEstimee: simResult.pensionEstimee,
     };
 
     const res = await fetch('/api/leads', {

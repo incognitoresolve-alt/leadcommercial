@@ -37,6 +37,12 @@ async function calcSante() {
   document.getElementById('sante-callout').innerHTML = data.disclaimer;
   document.getElementById('sante-sources').textContent = 'Sources : ' + data.sources;
   santeResult.classList.add('show');
+
+  window.__lastSimResult = {
+    notes: data.chambre === 'individuelle'
+      ? `Simulation santé : chambre individuelle, ${data.jours} jour(s) → reste à charge estimé ${fmtEUR(data.resteAChargeMin)} – ${fmtEUR(data.resteAChargeMax)}.`
+      : `Simulation santé : chambre commune/double, ${data.jours} jour(s) → couverture de base par la mutuelle.`,
+  };
 }
 
 santeForm.addEventListener('submit', (e) => {

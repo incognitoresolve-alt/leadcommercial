@@ -51,6 +51,13 @@ async function calcIncapacite() {
   document.getElementById('incapacite-callout').innerHTML = data.disclaimer;
   document.getElementById('incapacite-sources').textContent = 'Sources : ' + data.sources;
   incapaciteResult.classList.add('show');
+
+  window.__lastSimResult = {
+    notes: `Simulation incapacité : ${data.statut === 'salarie' ? 'salarié' : 'indépendant'}, ${fmtEUR(data.revenuMensuel)}/mois, ${data.familleLabel} → perte estimée ${(risk ? '-' : '+')} ${fmtEUR(Math.abs(perte))}/mois.`,
+    profil: data.statut,
+    revenuMensuel: data.revenuMensuel,
+    ecartEstime: perte,
+  };
 }
 
 incapaciteForm.addEventListener('submit', (e) => {

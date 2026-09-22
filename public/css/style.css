@@ -248,15 +248,30 @@ fieldset.field-group legend {
 
 .kit-download {
   display: none;
-  margin-top: 22px;
-  padding: 22px;
+  margin-top: 24px;
+  padding: 28px 24px;
   border-radius: var(--radius);
   background: #e8f5ef;
-  border: 1px solid #cfe9dc;
+  border: 2px solid var(--green);
+  text-align: center;
 }
 .kit-download.show { display: block; }
-.kit-download-title { margin: 0 0 4px; font-weight: 700; color: var(--green); }
-.kit-download-sub { margin: 0 0 16px; font-size: 0.9rem; color: var(--muted); }
+.kit-download-title { margin: 0 0 6px; font-size: 1.25rem; font-weight: 800; color: var(--green); }
+.kit-download-sub { margin: 0 0 20px; font-size: 0.92rem; color: var(--muted); }
+
+/* le lien de telechargement est la recompense promise : il doit sauter aux yeux */
+.btn-download {
+  display: block;
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  box-shadow: 0 6px 18px -6px rgba(212, 169, 76, 0.7);
+}
+@media (max-width: 560px) {
+  .btn-download { font-size: 0.95rem; padding: 16px 18px; }
+}
 
 .results-cta {
   margin-top: 22px;

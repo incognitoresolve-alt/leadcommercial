@@ -62,11 +62,11 @@
 | 0-3s | "Si t'as un bien ou une entreprise et pas de plan de transmission, tes héritiers vont payer le prix." | **PAS DE PLAN DE TRANSMISSION ?** |
 | 3-15s | "Il existe un mécanisme simple, la donation avec usufruit : tu donnes la propriété du bien à tes enfants, mais tu gardes le droit d'en profiter et d'en toucher les revenus jusqu'à la fin." | *(gros plan page du Kit)* |
 | 15-30s | "Résultat : tes enfants héritent avec beaucoup moins de droits de succession à payer, et toi tu gardes le contrôle de ton vivant." | **MOINS DE DROITS DE SUCCESSION** |
-| 30-42s | "C'est exactement ce genre de mécanisme que j'explique, étape par étape, dans mon Kit Sérénité & Transmission — 58 pages, gratuit." | *(feuilletage du booklet)* |
+| 30-42s | "C'est exactement ce genre de mécanisme que j'explique, étape par étape, dans mon Kit Sérénité & Transmission — 44 pages, gratuit." | *(feuilletage du booklet)* |
 | 42-50s | "DM-moi KIT et je te l'envoie directement." | **DM "KIT" ⬇️** |
 
 **Légende de publication** :
-"Un bien ou une entreprise à transmettre ? Ce mécanisme peut changer beaucoup de choses. DM 'KIT' pour le guide gratuit (58 pages)."
+"Un bien ou une entreprise à transmettre ? Ce mécanisme peut changer beaucoup de choses. DM 'KIT' pour le guide gratuit (44 pages)."
 
 **Hashtags suggérés** : #succession #transmission #patrimoine #donation #belgique #fiscalité
 

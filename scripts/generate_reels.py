@@ -10,8 +10,8 @@ Pipeline par slide :
      de la slide — navy pour cover/cta, ivoire pour le contenu — donc invisible)
   3. Synthese vocale FR (espeak-ng + voix mbrola fr4) sur le texte de "voix_off"
   4. Segment video ffmpeg (image figee + audio, fondu d'entree)
-Puis concatenation des 7 segments en un seul MP4 par thematique, et mise a jour
-de public/downloads/videos-manifest.json pour que /videos.html les liste aussi.
+Puis concatenation des 7 segments en un seul MP4 par thematique, ecrit dans
+content/reels/ (contenu a publier sur TikTok/Reels, pas servi par le site).
 
 Necessite : ffmpeg, ffprobe, espeak-ng (+ voix mbrola-fr4), Pillow, police DejaVu.
 """
@@ -33,17 +33,7 @@ from generate_videos import (  # noqa: E402
     run, ffprobe_duration, synth_tts, build_segment, concat_segments, W, H,
 )
 
-OUT_DIR = os.path.join(ROOT, "public", "downloads")
-MANIFEST_PATH = os.path.join(OUT_DIR, "videos-manifest.json")
-
-DM_PILIER = {
-    "epargne-pension": "EPARGNE",
-    "epargne-long-terme": "PLAN",
-    "epargne-enfant": "ENFANT",
-    "couverture-sante": "SANTE",
-    "couverture-obseques": "OBSEQUES",
-    "incapacite-travail-salarie": "INCAPACITE",
-}
+OUT_DIR = os.path.join(ROOT, "content", "reels")
 
 assert (W, H) == (1080, 1920), "generate_videos.py W/H changed — reel canvas expects 1080x1920"
 
@@ -88,42 +78,16 @@ def build_reel(entry, tmp_root):
     return out_path, ffprobe_duration(out_path)
 
 
-def update_manifest(new_entries):
-    existing = []
-    if os.path.exists(MANIFEST_PATH):
-        with open(MANIFEST_PATH, encoding="utf-8") as f:
-            existing = json.load(f)
-
-    new_files = {e["file"] for e in new_entries}
-    merged = [e for e in existing if e["file"] not in new_files] + new_entries
-
-    with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
-        json.dump(merged, f, ensure_ascii=False, indent=2)
-
-
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     with open(DATA_FILE, encoding="utf-8") as f:
         carousels = json.load(f)
 
-    manifest_entries = []
     with tempfile.TemporaryDirectory(prefix="reelgen_") as tmp_root:
         for entry in carousels:
             print(f"Génération reel : {entry['name']} ({len(entry['slides'])} slides)...")
             out_path, duration = build_reel(entry, tmp_root)
-            mins, secs = divmod(int(round(duration)), 60)
-            pilier = DM_PILIER[entry["id"]]
-            manifest_entries.append({
-                "file": os.path.basename(out_path),
-                "title": f"Reel — {entry['name']}",
-                "pilier": pilier,
-                "description": f"Version Reel/TikTok du carrousel {entry['name']}, voix off + mêmes visuels. CTA : DM \"{entry['dm_keyword']}\".",
-                "duration": f"{mins}:{secs:02d}",
-            })
             print(f"  -> {out_path} ({duration:.1f}s)")
-
-    update_manifest(manifest_entries)
-    print(f"Manifest mis à jour : {MANIFEST_PATH}")
 
 
 if __name__ == "__main__":

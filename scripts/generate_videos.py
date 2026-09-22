@@ -24,7 +24,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_FILE = os.path.join(ROOT, "scripts", "video_data.json")
-OUT_DIR = os.path.join(ROOT, "public", "downloads")
+OUT_DIR = os.path.join(ROOT, "content", "videos")
 
 W, H = 1080, 1920
 FPS = 25
@@ -219,25 +219,11 @@ def main():
     with open(DATA_FILE) as f:
         videos = json.load(f)
 
-    manifest = []
     with tempfile.TemporaryDirectory(prefix="videogen_") as tmp_root:
         for entry in videos:
             print(f"Generation : {entry['title']} ...")
             out_path, duration = build_video(entry, tmp_root)
-            mins, secs = divmod(int(round(duration)), 60)
-            manifest.append({
-                "file": entry["file"],
-                "title": entry["title"],
-                "pilier": entry["pilier"],
-                "description": entry["description"],
-                "duration": f"{mins}:{secs:02d}",
-            })
             print(f"  -> {out_path} ({duration:.1f}s)")
-
-    manifest_path = os.path.join(OUT_DIR, "videos-manifest.json")
-    with open(manifest_path, "w") as f:
-        json.dump(manifest, f, ensure_ascii=False, indent=2)
-    print(f"Manifest ecrit : {manifest_path}")
 
 
 if __name__ == "__main__":

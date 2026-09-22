@@ -82,8 +82,15 @@ router.post('/', (req, res) => {
 });
 
 function requireAdmin(req, res, next) {
+  const expected = process.env.ADMIN_TOKEN;
+  // Pas de valeur par defaut : sans ADMIN_TOKEN defini, l'admin reste ferme
+  // plutot que protege par un mot de passe devinable.
+  if (!expected || expected === 'change-moi') {
+    return res.status(503).json({
+      error: "L'administration est desactivee : definis ADMIN_TOKEN dans .env avec une valeur propre, puis redemarre le serveur.",
+    });
+  }
   const token = req.query.token || req.headers['x-admin-token'];
-  const expected = process.env.ADMIN_TOKEN || 'changeme';
   if (token !== expected) {
     return res.status(401).json({ error: 'Token admin invalide. Passe ?token=... ou header X-Admin-Token.' });
   }

@@ -5,7 +5,7 @@ Outil de génération de leads pour un funnel indépendants/professions de sant�
 ## Ce que contient l'outil
 
 - **Simulateur "Mon Écart Pension"** (`/`) : compare le revenu net actuel à la pension BRUTE moyenne officielle du statut (salarié/indépendant/fonctionnaire — PensionStat.be 2025), puis capture le lead (DM "ÉCART" équivalent web).
-- **Page Kit Sérénité & Transmission** (`/kit.html`) : simulateur de droits de succession par région (Wallonie/Bruxelles/Flandre) + coût moyen des obsèques, puis capture de lead pour le guide 58 pages (DM "KIT").
+- **Page Kit Sérénité & Transmission** (`/kit.html`) : simulateur de droits de succession par région (Wallonie/Bruxelles/Flandre) + coût moyen des obsèques, puis capture de lead pour le guide 44 pages (DM "KIT").
 - **Page Bilan gratuit** (`/bilan.html`) : capture de lead pour un bilan protection (incapacité, maladie, décès, comparatif salarié) — DM "BILAN".
 - **Page Solutions** (`/solutions.html`) : hub vers les 6 pages produit ci-dessous, chacune avec son propre mot-clé DM — pensées pour recevoir le trafic des carrousels Instagram/TikTok et transformer les DM en leads trackés :
   - `/epargne-pension.html` — DM "ÉPARGNE"
@@ -14,7 +14,6 @@ Outil de génération de leads pour un funnel indépendants/professions de sant�
   - `/couverture-sante.html` — DM "SANTÉ" (avec simulateur de reste à charge hospitalisation)
   - `/couverture-obseques.html` — DM "OBSÈQUES"
   - `/incapacite-salarie.html` — DM "INCAPACITÉ" (avec simulateur salarié/indépendant, taux INAMI)
-- **Page Vidéos** (`/videos.html`) : les vidéos verticales générées à partir des scripts, prévisualisables et téléchargeables.
 - **Admin leads** (`/admin.html`) : liste des leads capturés (protégée par `ADMIN_TOKEN`) + export CSV.
 
 ## Lancer le projet
@@ -32,10 +31,31 @@ Le serveur écoute sur `http://localhost:3000` et charge automatiquement `.env` 
 | Variable | Rôle |
 |---|---|
 | `WEB3FORMS_KEY` | Envoie un email à chaque nouveau lead. La clé du projet Boussole Prévoyance (OVB) est reprise telle quelle, pour garder un seul flux de leads vers la même boîte mail. Sans elle, les leads sont quand même enregistrés en base et visibles sur `/admin.html`. |
-| `ADMIN_TOKEN` | Protège `/admin.html` et l'export CSV. |
+| `ADMIN_TOKEN` | Protège `/admin.html` et l'export CSV. Voir « Protéger l'admin » ci-dessous. |
 | `PORT` | Port d'écoute (3000 par défaut). |
 
 Si Web3Forms refuse une notification, la raison exacte est loggée côté serveur (`Web3Forms a refusé la notification : …`) — le lead, lui, reste toujours enregistré en base.
+
+## Protéger l'admin (`ADMIN_TOKEN`)
+
+`/admin.html` affiche tous les leads captés (nom, email, téléphone) : c'est la page la plus sensible du site. Elle est protégée par un simple mot de passe, `ADMIN_TOKEN`.
+
+1. Génère une valeur aléatoire (ne choisis pas un mot de passe « à la main ») :
+
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(24).toString('base64url'))"
+   ```
+
+2. Colle-la dans `.env` :
+
+   ```
+   ADMIN_TOKEN=la-valeur-generee
+   ```
+
+3. Redémarre le serveur (`npm start`) — les variables de `.env` ne sont lues qu'au démarrage.
+4. Ouvre `/admin.html` et saisis cette valeur dans le champ token.
+
+Tant que `ADMIN_TOKEN` est vide ou vaut encore `change-moi`, l'API admin répond **503** et la liste des leads reste inaccessible : pas de valeur par défaut devinable. Au déploiement, définis la variable dans la configuration de l'hébergeur (et non dans un fichier versionné) ; `.env` est ignoré par git.
 
 ## Livraison du Kit Sérénité & Transmission
 
@@ -45,7 +65,7 @@ Après avoir rempli le formulaire sur `/kit.html`, le prospect voit apparaître 
 public/downloads/kit-serenite-transmission.pdf
 ```
 
-**Ce fichier doit être déposé à cet emplacement exact** (il n'est pas dans le dépôt). Tant qu'il est absent, un prospect qui clique reçoit un message d'attente explicite (HTTP 503) plutôt qu'une erreur 404 — voir la route de repli dans `server.js`.
+Le PDF (44 pages, « Volume 2 ») est versionné dans le dépôt, il n'y a donc rien à déposer manuellement au déploiement. Si le fichier venait à manquer, un prospect qui clique reçoit un message d'attente explicite (HTTP 503) plutôt qu'une erreur 404 — voir la route de repli dans `server.js`.
 
 ## API
 
@@ -60,7 +80,7 @@ public/downloads/kit-serenite-transmission.pdf
 
 ## Générer les vidéos
 
-Les 3 vidéos (`public/downloads/*.mp4`) sont générées à partir de `scripts/video_data.json` (texte issu du document `Scripts_Videos_Pretes_A_Publier.md`) :
+Les vidéos ne sont **pas** publiées par le site : ce sont des fichiers à poster sur TikTok/Instagram. Les 3 vidéos sont générées dans `content/videos/` à partir de `scripts/video_data.json` (texte issu du document `Scripts_Videos_Pretes_A_Publier.md`) :
 
 ```bash
 apt-get install -y ffmpeg espeak-ng mbrola mbrola-fr4   # dépendances système
@@ -68,7 +88,7 @@ pip install pillow
 python3 scripts/generate_videos.py
 ```
 
-Pipeline par ligne du script : synthèse vocale FR (espeak-ng + voix mbrola `mb-fr4`), image de fond générée (PIL) avec le texte à l'écran synchronisé, puis assemblage ffmpeg en un MP4 vertical 1080×1920. Les fichiers `.mp4` ne sont pas versionnés (voir `.gitignore`) — relancer le script après clonage, ou récupérer les fichiers livrés séparément.
+Pipeline par ligne du script : synthèse vocale FR (espeak-ng + voix mbrola `mb-fr4`), image de fond générée (PIL) avec le texte à l'écran synchronisé, puis assemblage ffmpeg en un MP4 vertical 1080×1920. Le script `scripts/generate_reels.py` produit de la même façon des Reels 1080×1920 dans `content/reels/`, à partir des slides des carrousels (voir section suivante) + voix off. Les fichiers `.mp4` ne sont pas versionnés (voir `.gitignore`) — relancer le script après clonage.
 
 **Important** : la voix off est générée par synthèse vocale (robotique), pas une voix humaine enregistrée. Pour un rendu plus naturel, remplace la voix off par un enregistrement réel (le texte mot pour mot et le minutage sont dans `scripts/video_data.json`) avant publication, ou utilise ces vidéos telles quelles comme gabarit (visuel + timing + sous-titres) que tu doubles ensuite dans CapCut/InShot.
 

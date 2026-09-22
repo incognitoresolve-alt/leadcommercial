@@ -8,6 +8,34 @@ const PILIERS = [
   'EPARGNE', 'PLAN', 'ENFANT', 'SANTE', 'OBSEQUES', 'INCAPACITE',
 ];
 
+// Cle Web3Forms pour notifier chaque nouveau lead par email -- a definir via la
+// variable d'environnement WEB3FORMS_KEY (voir README). Sans elle, les leads sont
+// toujours enregistres en base et visibles sur /admin.html, juste sans email.
+const WEB3FORMS_KEY = process.env.WEB3FORMS_KEY || '';
+
+async function notifyLead(row) {
+  if (!WEB3FORMS_KEY) return;
+  try {
+    await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: `Nouveau lead — ${row.pilier}`,
+        from_name: 'Mon Écart Pension',
+        Pilier: row.pilier,
+        Nom: row.nom || '(non renseigné)',
+        Email: row.email || '(non renseigné)',
+        Téléphone: row.telephone || '(non renseigné)',
+        Source: row.source || '(non renseignée)',
+        Notes: row.notes || '(aucune)',
+      }),
+    });
+  } catch (err) {
+    console.error('Notification Web3Forms echouee (lead deja enregistre en base) :', err.message);
+  }
+}
+
 const insertLead = db.prepare(`
   INSERT INTO leads (pilier, nom, email, telephone, profil, age, revenu_mensuel, annees_activite, ecart_estime, pension_estimee, source, notes)
   VALUES (@pilier, @nom, @email, @telephone, @profil, @age, @revenu_mensuel, @annees_activite, @ecart_estime, @pension_estimee, @source, @notes)
@@ -39,6 +67,7 @@ router.post('/', (req, res) => {
   };
 
   const result = insertLead.run(row);
+  notifyLead(row);
   res.status(201).json({ id: result.lastInsertRowid, ...row });
 });
 

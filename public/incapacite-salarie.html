@@ -38,6 +38,42 @@
   </div>
 
   <div class="card">
+    <h2>Simulateur — que reste-t-il de ton revenu ?</h2>
+    <p>Applique les taux et forfaits officiels de l'INAMI, selon ton statut et ta situation familiale.</p>
+    <form id="incapacite-form">
+      <fieldset class="field-group">
+        <legend>Statut professionnel</legend>
+        <div class="seg">
+          <label><input type="radio" name="statut" value="salarie" checked><span>Salarié</span></label>
+          <label><input type="radio" name="statut" value="independant"><span>Indépendant</span></label>
+        </div>
+      </fieldset>
+      <label for="revenu">Revenu net mensuel actuel (€)</label>
+      <input type="number" id="revenu" min="0" step="50" value="2600">
+      <fieldset class="field-group">
+        <legend>Situation familiale</legend>
+        <div class="seg">
+          <label><input type="radio" name="famille" value="famille" checked><span>Charge de famille</span></label>
+          <label><input type="radio" name="famille" value="isole"><span>Isolé</span></label>
+          <label><input type="radio" name="famille" value="cohabitant"><span>Cohabitant</span></label>
+        </div>
+      </fieldset>
+      <button type="submit">Calculer ma perte de revenu</button>
+    </form>
+
+    <div class="result" id="incapacite-result">
+      <span class="indic-badge">Estimation indicative</span>
+      <div id="incapacite-meters"></div>
+      <div class="stat-hero risk">
+        <span class="sh-label" id="incapacite-hero-label">Perte de revenu mensuelle</span>
+        <span class="sh-value" id="incapacite-hero-value">—</span>
+      </div>
+      <div class="callout" id="incapacite-callout"></div>
+      <p class="source-note" id="incapacite-sources"></p>
+    </div>
+  </div>
+
+  <div class="card">
     <h2>Connaître mon écart réel</h2>
     <form data-pilier="INCAPACITE" data-source="incapacite-salarie-web" data-success-message="Merci ! Je te montre ton écart réel très vite.">
       <div class="grid-2">
@@ -59,8 +95,9 @@
 
 </div>
 
-<footer>Mon Écart Pension — incapacité de travail (salarié)</footer>
+<footer>Mon Écart Pension — incapacité de travail (salarié)<p class="legal">Mon Écart Pension est un outil d'information mis à disposition par Boris Akoe. Les simulations sont des estimations générales, calculées à partir de données publiques (voir les sources citées sur chaque simulateur), pas un calcul personnalisé. Pour la mise en œuvre concrète d'une stratégie de protection ou d'épargne, vous serez accompagné(e) par un expert agréé auprès de la FSMA.</p></footer>
 
+<script src="/js/simulate-incapacite.js"></script>
 <script src="/js/produit-lead.js"></script>
 </body>
 </html>

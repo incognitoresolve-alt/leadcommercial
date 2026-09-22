@@ -38,6 +38,33 @@
   </div>
 
   <div class="card">
+    <h2>Simulateur — quel reste à charge en cas d'hospitalisation ?</h2>
+    <form id="sante-form">
+      <fieldset class="field-group">
+        <legend>Type de chambre souhaité</legend>
+        <div class="seg">
+          <label><input type="radio" name="chambre" value="individuelle" checked><span>Individuelle</span></label>
+          <label><input type="radio" name="chambre" value="commune"><span>Commune / double</span></label>
+        </div>
+      </fieldset>
+      <label for="jours">Durée estimée du séjour (jours)</label>
+      <input type="number" id="jours" min="1" max="60" step="1" value="5">
+      <button type="submit">Estimer le reste à charge</button>
+    </form>
+
+    <div class="result" id="sante-result">
+      <span class="indic-badge">Estimation indicative</span>
+      <div id="sante-stats"></div>
+      <div class="stat-hero risk" id="sante-hero" style="display:none;">
+        <span class="sh-label" id="sante-hero-label">Reste à charge estimé</span>
+        <span class="sh-value" id="sante-hero-value">—</span>
+      </div>
+      <div class="callout" id="sante-callout"></div>
+      <p class="source-note" id="sante-sources"></p>
+    </div>
+  </div>
+
+  <div class="card">
     <h2>Vérifier ce que couvre ma situation actuelle</h2>
     <form data-pilier="SANTE" data-source="couverture-sante-web" data-success-message="Merci ! Je fais le point avec toi très vite.">
       <div class="grid-2">
@@ -59,8 +86,9 @@
 
 </div>
 
-<footer>Mon Écart Pension — couverture santé</footer>
+<footer>Mon Écart Pension — couverture santé<p class="legal">Mon Écart Pension est un outil d'information mis à disposition par Boris Akoe. Les simulations sont des estimations générales, calculées à partir de données publiques (voir les sources citées sur chaque simulateur), pas un calcul personnalisé. Pour la mise en œuvre concrète d'une stratégie de protection ou d'épargne, vous serez accompagné(e) par un expert agréé auprès de la FSMA.</p></footer>
 
+<script src="/js/simulate-sante.js"></script>
 <script src="/js/produit-lead.js"></script>
 </body>
 </html>

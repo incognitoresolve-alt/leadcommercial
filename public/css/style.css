@@ -130,6 +130,119 @@ button:hover, .btn:hover { filter: brightness(1.08); }
 }
 .result .sub { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
 .disclaimer { font-size: 0.78rem; color: var(--muted); margin-top: 14px; }
+.source-note { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
+
+.indic-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border: 1px dashed #c7cede;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+fieldset.field-group {
+  border: 0;
+  padding: 0;
+  margin: 0 0 16px;
+}
+fieldset.field-group legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.seg { display: flex; flex-wrap: wrap; gap: 8px; }
+.seg label {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 10px;
+  border: 1px solid #d7dce5;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--muted);
+  background: var(--paper);
+  margin: 0;
+  min-width: 84px;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.seg label:has(input:checked) {
+  background: #eef3ff;
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid #e5e8ee;
+  font-size: 0.9rem;
+}
+.stat-row:first-child { border-top: none; padding-top: 0; }
+.stat-row .stat-label { color: var(--muted); max-width: 62%; line-height: 1.4; }
+.stat-row .stat-value { font-weight: 700; white-space: nowrap; }
+.stat-row .stat-value.risk { color: var(--danger); }
+.stat-row .stat-value.good { color: var(--green); }
+@media (max-width: 560px) {
+  .stat-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .stat-row .stat-label { max-width: 100%; }
+}
+
+.stat-hero {
+  position: relative;
+  margin: 16px 0 6px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: #eef1f6;
+  border: 1px solid #dde2ec;
+  border-left: 4px solid var(--muted);
+}
+.stat-hero.risk { background: #fbeceb; border-color: #f0d3d0; border-left-color: var(--danger); }
+.stat-hero.good { background: #e8f5ef; border-color: #cfe9dc; border-left-color: var(--green); }
+.stat-hero .sh-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+.stat-hero .sh-value { font-size: clamp(1.6rem, 3.4vw, 2.1rem); font-weight: 800; letter-spacing: -0.02em; }
+.stat-hero.risk .sh-value { color: var(--danger); }
+.stat-hero.good .sh-value { color: var(--green); }
+
+.meter-block { margin: 16px 0; }
+.meter-label { display: flex; justify-content: space-between; gap: 12px; font-size: 0.82rem; margin-bottom: 6px; color: var(--ink); }
+.meter-label .v { font-weight: 700; white-space: nowrap; }
+.meter-track { height: 10px; border-radius: 99px; background: #e5e8ee; overflow: hidden; }
+.meter-fill { height: 100%; border-radius: 99px; background: var(--blue); transition: width .5s ease; }
+.meter-fill.risk { background: var(--danger); }
+.meter-fill.good { background: var(--green); }
+
+.callout {
+  position: relative;
+  background: #f3f4f8;
+  border-radius: 10px;
+  padding: 14px 16px 14px 18px;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.callout::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--blue); opacity: .5; border-radius: 3px 0 0 3px;
+}
+.callout strong { color: var(--ink); }
 
 .pill {
   display: inline-block;
@@ -159,4 +272,6 @@ th { color: var(--muted); font-weight: 600; }
 .status-msg.ok { color: var(--green); }
 .status-msg.err { color: var(--danger); }
 
-footer { text-align: center; padding: 32px; color: var(--muted); font-size: 0.85rem; }
+footer { text-align: center; padding: 32px 20px; color: var(--muted); font-size: 0.85rem; }
+footer .legal { max-width: 620px; margin: 10px auto 0; font-size: 0.76rem; line-height: 1.6; }
+footer .legal a { color: var(--muted); text-decoration: underline; }

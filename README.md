@@ -4,16 +4,16 @@ Outil de génération de leads pour un funnel indépendants/professions de sant�
 
 ## Ce que contient l'outil
 
-- **Simulateur "Mon Écart Pension"** (`/`) : calcule un écart pension indicatif à partir de l'âge, du revenu net mensuel et des années d'activité déjà prestées, puis capture le lead (DM "ÉCART" équivalent web).
-- **Page Kit Sérénité & Transmission** (`/kit.html`) : capture de lead pour le guide 58 pages (DM "KIT" équivalent web).
+- **Simulateur "Mon Écart Pension"** (`/`) : compare le revenu net actuel à la pension BRUTE moyenne officielle du statut (salarié/indépendant/fonctionnaire — PensionStat.be 2025), puis capture le lead (DM "ÉCART" équivalent web).
+- **Page Kit Sérénité & Transmission** (`/kit.html`) : simulateur de droits de succession par région (Wallonie/Bruxelles/Flandre) + coût moyen des obsèques, puis capture de lead pour le guide 58 pages (DM "KIT").
 - **Page Bilan gratuit** (`/bilan.html`) : capture de lead pour un bilan protection (incapacité, maladie, décès, comparatif salarié) — DM "BILAN".
 - **Page Solutions** (`/solutions.html`) : hub vers les 6 pages produit ci-dessous, chacune avec son propre mot-clé DM — pensées pour recevoir le trafic des carrousels Instagram/TikTok et transformer les DM en leads trackés :
   - `/epargne-pension.html` — DM "ÉPARGNE"
   - `/epargne-long-terme.html` — DM "PLAN"
   - `/epargne-enfant.html` — DM "ENFANT"
-  - `/couverture-sante.html` — DM "SANTÉ"
+  - `/couverture-sante.html` — DM "SANTÉ" (avec simulateur de reste à charge hospitalisation)
   - `/couverture-obseques.html` — DM "OBSÈQUES"
-  - `/incapacite-salarie.html` — DM "INCAPACITÉ"
+  - `/incapacite-salarie.html` — DM "INCAPACITÉ" (avec simulateur salarié/indépendant, taux INAMI)
 - **Page Vidéos** (`/videos.html`) : les vidéos verticales générées à partir des scripts, prévisualisables et téléchargeables.
 - **Admin leads** (`/admin.html`) : liste des leads capturés (protégée par `ADMIN_TOKEN`) + export CSV.
 
@@ -28,8 +28,11 @@ Le serveur écoute sur `http://localhost:3000`. Les leads sont stockés dans `da
 
 ## API
 
-- `POST /api/simulate` — `{ age, revenuMensuel, anneesActivite, profil }` → `{ pensionEstimee, ecartEstime, ... }`
-- `POST /api/leads` — `{ pilier: 'ECART'|'KIT'|'BILAN'|'EPARGNE'|'PLAN'|'ENFANT'|'SANTE'|'OBSEQUES'|'INCAPACITE', nom, email, telephone, ... }`. Les 6 pages produit utilisent un handler générique (`public/js/produit-lead.js`) qui lit `data-pilier` / `data-source` / `data-success-message` sur le `<form>`.
+- `POST /api/simulate` — `{ profil: 'salarie'|'independant'|'fonctionnaire', age, revenuMensuel }` → `{ pensionMoyenne, ecartEstime, anneesRestantes, epargnePensionRecuperee, epargneLongTermeRecuperee, ... }`
+- `POST /api/simulate-deces` — `{ region: 'wallonie'|'bruxelles'|'flandre', patrimoine }` → `{ droitsSuccession, coutTotalMin, coutTotalMax, ... }`
+- `POST /api/simulate-incapacite` — `{ statut: 'salarie'|'independant', revenuMensuel, famille: 'famille'|'isole'|'cohabitant' }` → `{ perteMensuelle, ... }` (salarié : mois garanti + primaire + invalidité ; indépendant : forfait journalier INAMI)
+- `POST /api/simulate-sante` — `{ chambre: 'individuelle'|'commune', jours }` → `{ resteAChargeMin, resteAChargeMax, ... }`
+- `POST /api/leads` — `{ pilier: 'ECART'|'KIT'|'BILAN'|'EPARGNE'|'PLAN'|'ENFANT'|'SANTE'|'OBSEQUES'|'INCAPACITE', nom, email, telephone, ... }`. Les 6 pages produit utilisent un handler générique (`public/js/produit-lead.js`) qui lit `data-pilier` / `data-source` / `data-success-message` sur le `<form>`. Chaque lead créé déclenche aussi une notification par email via Web3Forms si la variable d'environnement `WEB3FORMS_KEY` est définie (clé gratuite sur web3forms.com, associée à l'adresse email de destination) — sans elle, les leads restent visibles uniquement sur `/admin.html`.
 - `GET /api/leads?token=...` — liste des leads (JSON)
 - `GET /api/leads/export.csv?token=...` — export CSV
 - `PATCH /api/leads/:id?token=...` — mise à jour `statut` / `notes`
@@ -59,6 +62,13 @@ python3 scripts/generate_carousels.py
 
 Format 1080×1350 (4:5), compatible carrousel Instagram et post photo TikTok. Design : couverture et CTA en navy dramatique, slides de contenu en ivoire pour la lisibilité, une couleur d'accent par thème, points de progression en bas de chaque slide. Les images et zips ne sont pas versionnés (voir `.gitignore`) — relancer le script après clonage.
 
-## Hypothèses du simulateur
+## Hypothèses des simulateurs
 
-Le calcul d'écart pension est une **estimation indicative simplifiée** (âge légal 67 ans, carrière de référence 45 ans, taux de remplacement moyen 42% du revenu actuel, plancher pension minimum garantie) — voir `server/simulate.js`. Ce n'est pas un calcul officiel ; un renvoi vers mypension.be est affiché à l'utilisateur.
+Tous les simulateurs (`server/simulate*.js`) sont des **estimations indicatives sourcées sur des données publiques officielles** — pas des calculs personnalisés ni un conseil réglementé :
+
+- **Pension** : pension BRUTE moyenne par statut (PensionStat.be 2025 — SPF Pensions/Sigedis/INASTI), âge légal 66 ans, plafonds épargne-pension/épargne long terme (SPF Finances) et PLCI sociale (INASTI 2026).
+- **Décès & succession** : barèmes progressifs par région avec abattement de base, ligne directe/conjoints uniquement (SPW Fiscalité, Bruxelles Fiscalité, VLABEL, Fédération royale du notariat belge). Ne couvre pas les exonérations spécifiques (logement familial, clauses bénéficiaires, donations antérieures) — un notaire reste nécessaire pour un montant exact.
+- **Incapacité de travail** : taux et forfaits INAMI (salaire garanti 1 mois, primaire 60%, invalidité 65/55/40% selon la situation familiale pour un salarié ; forfait journalier fixe pour un indépendant).
+- **Santé** : suppléments de chambre individuelle (moyennes hôpital public vs clinique privée) et mécanisme du ticket modérateur (Wikifin.be/INAMI).
+
+Un rappel FSMA (les simulations sont des estimations générales ; la mise en œuvre passe par un expert agréé) est affiché en pied de page sur tout le site — voir `public/css/style.css` (`.legal`) et le footer de chaque page.

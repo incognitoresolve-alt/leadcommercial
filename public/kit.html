@@ -38,6 +38,37 @@
   </div>
 
   <div class="card">
+    <h2>Simulateur — combien coûterait ta succession ?</h2>
+    <p>Les droits de succession varient fortement selon ta région. Une estimation en ligne directe / conjoints, en 10 secondes.</p>
+    <form id="deces-form">
+      <fieldset class="field-group">
+        <legend>Région</legend>
+        <div class="seg">
+          <label><input type="radio" name="region" value="wallonie" checked><span>Wallonie</span></label>
+          <label><input type="radio" name="region" value="bruxelles"><span>Bruxelles</span></label>
+          <label><input type="radio" name="region" value="flandre"><span>Flandre</span></label>
+        </div>
+      </fieldset>
+      <label for="patrimoine">Patrimoine net transmis (€)</label>
+      <input type="number" id="patrimoine" name="patrimoine" min="0" step="1000" value="250000">
+      <p class="disclaimer" style="margin-top:-10px; margin-bottom:16px;">Biens, comptes et placements, hors logement familial exonéré entre époux/cohabitants légaux.</p>
+      <button type="submit">Estimer les droits de succession</button>
+    </form>
+
+    <div class="result" id="deces-result">
+      <span class="indic-badge">Estimation indicative — ligne directe / conjoints</span>
+      <div id="deces-stats"></div>
+      <div class="stat-hero risk">
+        <span class="sh-label" id="deces-hero-label">Coût total estimé d'un décès</span>
+        <span class="sh-value" id="deces-hero-value">—</span>
+      </div>
+      <div class="callout" id="deces-callout"></div>
+      <p class="disclaimer" id="deces-disclaimer"></p>
+      <p class="source-note" id="deces-sources"></p>
+    </div>
+  </div>
+
+  <div class="card">
     <h2>Recevoir le Kit gratuitement</h2>
     <form id="kit-form">
       <div class="grid-2">
@@ -59,8 +90,9 @@
 
 </div>
 
-<footer>Mon Écart Pension — Kit Sérénité & Transmission</footer>
+<footer>Mon Écart Pension — Kit Sérénité & Transmission<p class="legal">Mon Écart Pension est un outil d'information mis à disposition par Boris Akoe. Les simulations sont des estimations générales, calculées à partir de données publiques (voir les sources citées sur chaque simulateur), pas un calcul personnalisé. Pour la mise en œuvre concrète d'une stratégie de protection ou d'épargne, vous serez accompagné(e) par un expert agréé auprès de la FSMA.</p></footer>
 
+<script src="/js/simulate-deces.js"></script>
 <script src="/js/kit.js"></script>
 </body>
 </html>

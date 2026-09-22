@@ -1,32 +1,41 @@
 /**
- * Estimation indicative de la pension et de l'ecart pension pour un independant belge.
+ * Estimation indicative de la pension et de l'ecart pension en Belgique.
  *
- * Hypotheses simplifiees (a but pedagogique / lead magnet, PAS un calcul officiel) :
- * - Age legal de la pension : 67 ans
- * - Carriere complete de reference : 45 ans
- * - Taux de remplacement moyen pour un independant en fin de carriere complete : 42%
- *   du revenu net mensuel actuel (regime independant historiquement moins genereux
- *   que le regime salarie), applique au prorata des annees de carriere projetees
- * - Plancher : pension minimum garantie indexee au prorata carriere (base 1500 EUR
- *   pour une carriere complete)
+ * Compare le revenu net mensuel actuel a la pension BRUTE moyenne officielle
+ * du meme statut professionnel (PensionStat.be, donnees 2025 : SPF Pensions /
+ * Sigedis / INASTI). L'ecart n'est donc pas une projection individuelle de
+ * carriere (pour ca, voir mypension.be), mais une comparaison a la moyenne
+ * de son statut -- suffisant pour un declic, pas pour un montant exact.
  *
- * Ces hypotheses sont volontairement simples et doivent etre presentees comme une
- * estimation, avec un renvoi vers mypension.be pour un calcul officiel.
+ * Sources :
+ * - PensionStat.be : moyennes de pension par statut, age legal
+ * - SPF Finances : plafonds epargne-pension / epargne long terme (revenus 2025-2026)
+ * - INASTI : plafond PLCI sociale (2026, indexe)
  */
 
-const AGE_LEGAL_PENSION = 67;
-const CARRIERE_COMPLETE_ANNEES = 45;
-const TAUX_REMPLACEMENT = 0.42;
-const PENSION_MIN_CARRIERE_COMPLETE = 1500;
+const PENSION_MOYENNE = {
+  salarie: 1714,
+  independant: 1243,
+  fonctionnaire: 3588,
+}; // PensionStat.be, brut mensuel moyen, donnees 2025
 
-function clamp(value, min, max) {
-  return Math.max(min, Math.min(max, value));
-}
+const AGE_LEGAL_PENSION = 66; // depuis le 1er janvier 2025
 
-function simulerEcartPension({ age, revenuMensuel, anneesActivite, profil }) {
+const PLAFOND_EPARGNE_PENSION = 1050; // EUR/an, SPF Finances (inchange revenus 2025-2026)
+const PLAFOND_EPARGNE_LONG_TERME = 2450; // EUR/an, SPF Finances
+const TAUX_REDUCTION_EPARGNE = 0.30; // taux fixe, quel que soit le revenu
+const PLAFOND_PLCI_SOCIALE = 4701.54; // EUR/an, INASTI 2026 (9,40% des revenus pro nets)
+
+const STATUT_LABELS = {
+  salarie: 'salarié',
+  independant: 'indépendant',
+  fonctionnaire: 'fonctionnaire',
+};
+
+function simulerEcartPension({ age, revenuMensuel, profil }) {
   const ageNum = Number(age);
   const revenu = Number(revenuMensuel);
-  const anneesDejaPrestees = Number(anneesActivite) || 0;
+  const statut = PENSION_MOYENNE[profil] !== undefined ? profil : 'salarie';
 
   if (!Number.isFinite(ageNum) || ageNum < 18 || ageNum > 70) {
     throw new Error('Age invalide (doit etre entre 18 et 70 ans).');
@@ -35,33 +44,34 @@ function simulerEcartPension({ age, revenuMensuel, anneesActivite, profil }) {
     throw new Error('Revenu mensuel invalide.');
   }
 
+  const pensionMoyenne = PENSION_MOYENNE[statut];
+  const ecartEstime = Math.round(revenu - pensionMoyenne);
   const anneesRestantes = Math.max(0, AGE_LEGAL_PENSION - ageNum);
-  const anneesCarriereProjetee = clamp(anneesDejaPrestees + anneesRestantes, 0, CARRIERE_COMPLETE_ANNEES);
-  const prorataCarriere = anneesCarriereProjetee / CARRIERE_COMPLETE_ANNEES;
 
-  const pensionParTaux = revenu * TAUX_REMPLACEMENT * prorataCarriere;
-  const pensionPlancher = PENSION_MIN_CARRIERE_COMPLETE * prorataCarriere;
-  const pensionEstimee = Math.round(Math.max(pensionParTaux, pensionPlancher));
+  const epargnePensionRecuperee = Math.round(PLAFOND_EPARGNE_PENSION * TAUX_REDUCTION_EPARGNE);
+  const epargneLongTermeRecuperee = Math.round(PLAFOND_EPARGNE_LONG_TERME * TAUX_REDUCTION_EPARGNE);
 
-  const ecartEstime = Math.round(revenu - pensionEstimee);
-
-  return {
-    profil: profil || 'independant',
+  const result = {
+    profil: statut,
+    profilLabel: STATUT_LABELS[statut],
     age: ageNum,
     revenuMensuel: revenu,
-    anneesActivite: anneesDejaPrestees,
-    anneesCarriereProjetee: Math.round(anneesCarriereProjetee * 10) / 10,
-    pensionEstimee,
+    pensionMoyenne,
     ecartEstime,
-    hypotheses: {
-      ageLegalPension: AGE_LEGAL_PENSION,
-      carriereCompleteAnnees: CARRIERE_COMPLETE_ANNEES,
-      tauxRemplacement: TAUX_REMPLACEMENT,
-      pensionMinCarriereComplete: PENSION_MIN_CARRIERE_COMPLETE,
-    },
+    anneesRestantes,
+    ageLegalPension: AGE_LEGAL_PENSION,
+    epargnePensionRecuperee,
+    epargneLongTermeRecuperee,
     disclaimer:
-      'Estimation indicative simplifiee, non contractuelle. Ne remplace pas un calcul officiel via mypension.be ni un bilan personnalise.',
+      "Estimation indicative : comparaison entre votre revenu net actuel et la pension BRUTE moyenne officielle de votre statut (PensionStat.be, 2025), pas une projection de votre carriere personnelle. Simulez votre pension reelle sur mypension.be.",
+    sources: 'PensionStat.be (SPF Pensions / Sigedis / INASTI) · SPF Finances · INASTI',
   };
+
+  if (statut === 'independant') {
+    result.plciSocialePlafond = PLAFOND_PLCI_SOCIALE;
+  }
+
+  return result;
 }
 
-module.exports = { simulerEcartPension };
+module.exports = { simulerEcartPension, PENSION_MOYENNE, AGE_LEGAL_PENSION };

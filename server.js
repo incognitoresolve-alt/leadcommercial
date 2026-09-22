@@ -51,6 +51,18 @@ app.post('/api/simulate-sante', (req, res) => {
 
 app.use('/api/leads', leadsRouter);
 
+// express.static a deja servi le PDF s'il est present : on n'arrive ici que s'il
+// manque. Un prospect qui vient de remplir le formulaire merite mieux qu'un 404.
+app.get('/downloads/kit-serenite-transmission.pdf', (req, res) => {
+  res.status(503).type('html').send(
+    `<p style="font-family:sans-serif;max-width:40em;margin:3em auto;line-height:1.6">
+       Le Kit n'est pas encore disponible au téléchargement — tes coordonnées sont bien
+       enregistrées et il te sera envoyé par email très vite.
+       <br><a href="/kit.html">Retour</a>
+     </p>`
+  );
+});
+
 app.get('/health', (req, res) => res.json({ ok: true }));
 
 app.listen(PORT, () => {

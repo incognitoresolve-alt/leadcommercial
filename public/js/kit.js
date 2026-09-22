@@ -1,5 +1,6 @@
 const kitForm = document.getElementById('kit-form');
 const kitStatus = document.getElementById('kit-status');
+const kitDownload = document.getElementById('kit-download');
 
 kitForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -20,9 +21,11 @@ kitForm.addEventListener('submit', async (e) => {
   });
 
   if (res.ok) {
-    kitStatus.textContent = 'Merci ! Le Kit Sérénité & Transmission arrive dans ta boîte mail.';
-    kitStatus.className = 'status-msg ok';
+    kitStatus.textContent = '';
+    kitStatus.className = 'status-msg';
     kitForm.reset();
+    kitDownload.classList.add('show');
+    kitDownload.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   } else {
     const data = await res.json();
     kitStatus.textContent = data.error || 'Erreur, réessaie.';

@@ -14,9 +14,12 @@ const PILIERS = [
 const WEB3FORMS_KEY = process.env.WEB3FORMS_KEY || '';
 
 async function notifyLead(row) {
-  if (!WEB3FORMS_KEY) return;
+  if (!WEB3FORMS_KEY) {
+    console.warn('WEB3FORMS_KEY absente : lead enregistre en base, mais aucun email envoye.');
+    return;
+  }
   try {
-    await fetch('https://api.web3forms.com/submit', {
+    const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
@@ -31,6 +34,13 @@ async function notifyLead(row) {
         Notes: row.notes || '(aucune)',
       }),
     });
+    const result = await response.json().catch(() => ({}));
+    if (!result.success) {
+      console.error(
+        'Web3Forms a refuse la notification (lead deja enregistre en base) :',
+        result.message || `HTTP ${response.status}`
+      );
+    }
   } catch (err) {
     console.error('Notification Web3Forms echouee (lead deja enregistre en base) :', err.message);
   }

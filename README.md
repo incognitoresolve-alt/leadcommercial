@@ -21,10 +21,31 @@ Outil de génération de leads pour un funnel indépendants/professions de sant�
 
 ```bash
 npm install
-ADMIN_TOKEN=change-moi npm start
+cp .env.example .env   # puis remplir les valeurs
+npm start
 ```
 
-Le serveur écoute sur `http://localhost:3000`. Les leads sont stockés dans `data/leads.db` (SQLite, créé automatiquement, non versionné).
+Le serveur écoute sur `http://localhost:3000` et charge automatiquement `.env` (via `node --env-file-if-exists`). Les leads sont stockés dans `data/leads.db` (SQLite, créé automatiquement, non versionné).
+
+`.env` n'est **pas versionné** — il faut le recréer sur le serveur de déploiement :
+
+| Variable | Rôle |
+|---|---|
+| `WEB3FORMS_KEY` | Envoie un email à chaque nouveau lead. La clé du projet Boussole Prévoyance (OVB) est reprise telle quelle, pour garder un seul flux de leads vers la même boîte mail. Sans elle, les leads sont quand même enregistrés en base et visibles sur `/admin.html`. |
+| `ADMIN_TOKEN` | Protège `/admin.html` et l'export CSV. |
+| `PORT` | Port d'écoute (3000 par défaut). |
+
+Si Web3Forms refuse une notification, la raison exacte est loggée côté serveur (`Web3Forms a refusé la notification : …`) — le lead, lui, reste toujours enregistré en base.
+
+## Livraison du Kit Sérénité & Transmission
+
+Après avoir rempli le formulaire sur `/kit.html`, le prospect voit apparaître un bouton de téléchargement immédiat pointant vers :
+
+```
+public/downloads/kit-serenite-transmission.pdf
+```
+
+**Ce fichier doit être déposé à cet emplacement exact** (il n'est pas dans le dépôt). Tant qu'il est absent, un prospect qui clique reçoit un message d'attente explicite (HTTP 503) plutôt qu'une erreur 404 — voir la route de repli dans `server.js`.
 
 ## API
 

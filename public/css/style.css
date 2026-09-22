@@ -246,6 +246,18 @@ fieldset.field-group legend {
 }
 .callout strong { color: var(--ink); }
 
+.kit-download {
+  display: none;
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: var(--radius);
+  background: #e8f5ef;
+  border: 1px solid #cfe9dc;
+}
+.kit-download.show { display: block; }
+.kit-download-title { margin: 0 0 4px; font-weight: 700; color: var(--green); }
+.kit-download-sub { margin: 0 0 16px; font-size: 0.9rem; color: var(--muted); }
+
 .results-cta {
   margin-top: 22px;
   padding-top: 18px;

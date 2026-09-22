@@ -184,7 +184,20 @@ fieldset.field-group legend {
   border-color: var(--blue);
   color: var(--blue);
 }
-.seg input { position: absolute; opacity: 0; pointer-events: none; }
+/* Le radio reste dans le DOM (pour :has(input:checked) et le clic sur le label)
+   mais doit etre neutralise : sans ca il herite du "width: 100%" global et,
+   place a sa position statique, il depassait a droite de l'ecran sur mobile. */
+.seg input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
 
 .stat-row {
   display: flex;

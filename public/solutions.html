@@ -9,8 +9,12 @@
   .solutions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 640px) { .solutions-grid { grid-template-columns: 1fr; } }
   .solution-card {
+    /* Fond opaque indispensable : .container remonte la grille de 36px pour
+       chevaucher le hero, et sans fond le navy traversait la premiere rangee. */
+    background: var(--white);
     border: 1px solid #e3e7ee;
     border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(11, 27, 50, 0.10);
     padding: 22px;
     display: flex;
     flex-direction: column;
